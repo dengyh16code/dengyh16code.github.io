@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<!-- Ref:http://vpg.cs.princeton.edu/ -->
+
+
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MQA: Answering the Question via Robotic Manipulation</title>
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
+    <!--??-->
+    <link href="css/project.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div id="main" style="padding-bottom:1em; padding-top: 5em; width: 60em; max-width: 70em; margin-left: auto; margin-right: auto;">
+        <section id="four">
+            <h1 style="text-align: center; margin-bottom: 0;">
+                MQA: Answering the Question via Robotic Manipulation
+            </h1>
+            <br>
+            <section>
+                <div class="box alt" style="margin-bottom: 1em;">
+                    <h5 style="text-align: center;">Yuhong Deng, 
+                            Naifu Zhang, 
+                            Di Guo, 
+                            Huaping Liu<sup>$</sup>,
+                            Fuchun Sun,
+                            Chen pang,
+                            Jing pang</h5>
+                </div>
+            </section>
+
+            <!-- <div class="row 50% uniform" style="width: 80%;">
+                    <div class="1u" style="font-size: 0.8em; line-height: 1.5em; text-align: center;">Yuhong Deng <sup>*</sup></div>
+                    <div class="1u" style="font-size: 0.8em; line-height: 1.5em; text-align: center;">Xiangfeng Guo <sup>*</sup></div>
+                    <div class="1u" style="font-size: 0.8em; line-height: 1.5em; text-align: center;">Yixuan Wei <sup>*</sup></div>
+                    <div class="1u" style="font-size: 0.8em; line-height: 1.5em; text-align: center;">Kai Lu <sup>*</sup></div>
+                    <div class="1u" style="font-size: 0.8em; line-height: 1.5em; text-align: center;">Bin Fang </div>
+                    <div class="1u" style="font-size: 0.8em; line-height: 1.5em; text-align: center;">Di Guo </div>
+                    <div class="1u" style="font-size: 0.8em; line-height: 1.5em; text-align: center;">Fuchun Sun </div>
+                    <div class="1u$" style="font-size: 0.8em; line-height: 1.5em; text-align: center;">Huaping Liu <sup>$</sup></div>
+                </div> -->
+            <h6 style="color: #a2a2a2; margin-bottom: 2em;">
+                <sup>$</sup> Corresponding author: hpliu@tsinghua.edu.cn<br>
+                All authers are from Department of Computer Science and Technology, Tsinghua University, Beijing, China
+            </h6>
+
+            <hr>
+            <br>
+            <b><h2 style="text-align: center;">Abstract</h2></b>
+
+            <p>
+                In this paper,we propose a novel task of Manipulation QuestionAnswering(MQA),a class of Question Answering 
+                (QA) task,where the robot is required to ﬁnd the answer to the question by actively interacting with the 
+                environmentvia manipulation. Considering the tabletop scenario, a heatmap of the scene is generated to 
+                facilitate the robot to have a semantic understanding of the scene and an imitation learning approach with 
+                semantic understanding metric is proposed to generate manipulation actions which guide the manipulator to 
+                explore the tabletop to ﬁnd the answer to the question. Besides, a novel dataset which contains a variety of
+                tabletop scenarios and corresponding question-answer pairs is established. Extensive experiments have been
+                conducted to validate the effectiveness of the proposed framework. 
+            </p>
+
+            <div class="12u$"><a href=""><span class="image fit"><img src="images/MQAweb/concept.png" alt=""></span></a></div>
+
+            <p><i> Given a question,</i> the manipulator generates a series of actions to manipulate the object on the
+                tabletop to ﬁnd the answer. It can be seen that the key is not directly visible in the initial scene. So
+                the manipulator needs to check possible objects that may occlude the key. It ﬁrst suctions away the
+                notebook and ﬁnds nothing under it. And then it pushes the book to the side and the key is found.
+            </p>       
+            <hr>
+
+            <b><h2 style="text-align: center;">Summary Video</h2></b>
+            <div class="12u$">
+                <video class="image fit" style="margin-bottom: 0.5em;" controls="" data-video="0">
+                    <source src="images/MQAweb/main.mp4" type="video/mp4">Your browser does not support this video.
+                    </video>
+                </div>
+            <hr>
+            <!-- Insert a video from youtube -->
+            <!-- <iframe id="match-video" width="880" height="495" style="margin-bottom: 2em; margin-left: auto; margin-right: auto; display:block;" src="https://www.youtube.com/embed/-OkyX7ZlhiU?rel=0" frameborder="0" allowfullscreen="">
+            </iframe> width="880" height="495"  -->
+            
+            <b><h2 style="text-align: center;">Dataset</h2></b>
+
+            <div class="12u$"><a href=""><span class="image fit"><img src="images/MQAweb/dataset.png" alt=""></span></a></div>
+
+            <p>
+                The objects in our dataset are divided into three Groups. 
+                Objects in Group I are often occluded by objects in Group II in this dataset. 
+                Other classes of objects are assigned to Group III.
+                For each tabletop, we randomly select 20 objects and place them randomly on the tabletop to generate scene. 
+                Each scene is then adjusted to one of the three difficulty levels, easy, medium, and hard.
+                For each scene, we  randomly ask 20 questions. 
+                There are six kinds of questions, and we have solved three of them.
+            </p>
+
+            <b><h2 style="text-align: center;">Algorithm</h2></b>
+
+            <div class="12u$"><a href=""><span class="image fit"><img src="images/MQAweb/algorithm.png" alt=""></span></a></div>
+
+            <p>
+                 The proposed MQA model is composed of 3 modules, 
+                 the semantic visual understanding module, manipulation planning module and question answering module. 
+                 In the semantic visual understanding module, both the RGB and depth images are used to calculate a 
+                 semantic heatmap. Then, the manipulation planning module is employed to generate a series of manipulation 
+                 actions to guide the manipulator to explore the tabletop. Finally, with the initial image and the image 
+                 obtained after the exploration, the question answering module outputs the answer to the question. 
+            </p>
+
+            <hr>
+            <b><h2 style="text-align: center;">Experiment Results</h2></b>
+            <h3>Simulation experiment</h3>
+            <p>We test our QA system in 600 new scenes.
+                First, we use our action model to generate action.
+                When the action model concludes that there is no need for action,
+                the QA module will give an answer. 
+                The accuracy of the existence question is 0.80. 
+                The accuracy of the counting question is 0.52.
+                The accuracy of the spatial question is 0.76.
+                The accuracy of all questions is 0.68.
+            </p>
+
+            <hr>
+            <b><h2 style="text-align: center;">Exitence question: Is there a key on the table?</h2></b>
+            <div class="12u$">
+                <video class="image fit" style="margin-bottom: 0.5em;" controls="" data-video="0">
+                    <source src="images/MQAweb/exist.mp4" type="video/mp4">Your browser does not support this video.
+                    </video>
+                </div>
+            <b><h2 style="text-align: center;">Answer: no</h2></b>
+            <hr>
+
+            <b><h2 style="text-align: center;">Counting question: How many scissors are there on the table?</h2></b>
+            <div class="12u$">
+                <video class="image fit" style="margin-bottom: 0.5em;" controls="" data-video="0">
+                    <source src="images/MQAweb/count.mp4" type="video/mp4">Your browser does not support this video.
+                    </video>
+                </div>
+            <b><h2 style="text-align: center;">Answer: one</h2></b>
+            <hr>
+
+            <b><h2 style="text-align: center;">Spatial question: What is under the keyboard?</h2></b>
+            <div class="12u$">
+                <video class="image fit" style="margin-bottom: 0.5em;" controls="" data-video="0">
+                    <source src="images/MQAweb/spatial.mp4" type="video/mp4">Your browser does not support this video.
+                    </video>
+                </div>
+            <b><h2 style="text-align: center;">Answer: one</h2></b>
+            <hr>
+
+
+
+
+            <!-- <h6 style="color: #a2a2a2; margin-bottom: 2em;">Note:</h6> -->
+
+            <h3>Real Experiments</h3>
+            <p>We used UR5 robot, Kinect camera and real objects similar to dataset to build the experimental scene,
+                and transferred our model from simulation to the real world directly.This is possible because the output of the model is a path independent of dynamics and the pictures in the simulation are similar to the actual pictures.
+            </p>
+
+            <p>The robot first thinks there may be a key under the box, so the robot sucks it away and finds a key.
+                After sucking the box away, there may be a key under the milk carton, so the robot pushes the milk carton 
+                away and finds no key. After two actions , the robot concludes there is no need for action and outputs the 
+                answer 1.
+            </p>
+
+            <b><h2 style="text-align: center;">Question: How many scissors are there on the table??</h2></b>
+            <div class="12u$">
+                <video class="image fit" style="margin-bottom: 0.5em;" controls="" data-video="0">
+                    <source src="images/MQAweb/real.mp4" type="video/mp4">Your browser does not support this video.
+                    </video>
+                </div>
+            <b><h2 style="text-align: center;">Answer: one</h2></b>
+            <hr>
+
+
+            <b><h3>Contact</h3></b>
+            <p>Have any questions, please feel free to contact <a href="https://dengyh16code.github.io/">Yuhong Deng</a></p>
+            <hr>
+
+            <div class="row">
+                <div class="6u 12u$(xsmall)">
+                    <p>March 8, 2020<br>
+                        Copyright &copy; <a href="https://dengyh16code.github.io/">Yuhong Deng</a>
+                    </p>
+                </div>
+                <!-- Share the website -->
+                <!-- <div class="6u$ 12u$(xsmall)" style="text-align: right;">
+                    <ul class="icons"><li><a href="https://twitter.com/intent/tweet?text=Learning%20Synergies%20between%20Pushing%20and%20Grasping%20with%20Self-supervised Deep%20Reinforcement%20Learning%20http://vpg.cs.princeton.edu" class="icon fa-twitter"><span class="label">Twitter</span>&nbsp;Tweet</a></li>&nbsp;&nbsp;&nbsp;&nbsp;<li><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fvpg.cs.princeton.edu%2F" class="icon fa-facebook-square"><span class="label">Facebook</span>&nbsp;&nbsp;Share</a></li></ul>
+                    <ul class="icons"></ul>
+                </div> -->
+            </div>
+        </section>
+    </div>
+
+    <!-- Copyright -->
+    <!-- <footer id="footer">
+            <div class="inner">
+                <ul class="copyright">
+                    <p>Copyright &copy; 2019 Yixuan Wei</p>
+                </ul>
+            </div>
+        </footer> -->
+
+    <script src="js/project/main.js"></script>
+    <script src="js/project/util.js"></script>
+    <script src="js/project/skel.min.js"></script>
+    <script src="js/project/jquery.min.js"></script>
+    <script src="js/project/jquery.poptrox.min.js"></script>
+</body>
+
+</html>

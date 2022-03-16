@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+
+<!-- Ref:http://vpg.cs.princeton.edu/ -->
+
+
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>A Local GNN-Based Learning Method for Goal-Conditioned Deformable Object Rearranging</title>
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
+    <!--??-->
+    <link href="css/project.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div id="main" style="padding-bottom:1em; padding-top: 5em; width: 60em; max-width: 70em; margin-left: auto; margin-right: auto;">
+        <section id="four">
+            <h1 style="text-align: center; margin-bottom: 0;">
+                A Local GNN-Based Learning Method for Goal-Conditioned Deformable Object Rearranging
+            </h1>
+            <br>
+            <section>
+                <div class="box alt" style="margin-bottom: 1em;">
+                    <h5 style="text-align: center;">Yuhong Deng<sup>1,2</sup>, 
+                            Chongkun xia<sup>1</sup>, 
+                            Xueqian Wang<sup>1</sup>,
+                            Lipeng Chen<sup>2,$</sup></h5>
+                </div>
+            </section>
+
+            <!-- <div class="row 50% uniform" style="width: 80%;">
+                    <div class="1u" style="font-size: 0.8em; line-height: 1.5em; text-align: center;">Yuhong Deng <sup>*</sup></div>
+                    <div class="1u" style="font-size: 0.8em; line-height: 1.5em; text-align: center;">Xiangfeng Guo <sup>*</sup></div>
+                    <div class="1u" style="font-size: 0.8em; line-height: 1.5em; text-align: center;">Yixuan Wei <sup>*</sup></div>
+                    <div class="1u" style="font-size: 0.8em; line-height: 1.5em; text-align: center;">Kai Lu <sup>*</sup></div>
+                    <div class="1u" style="font-size: 0.8em; line-height: 1.5em; text-align: center;">Bin Fang </div>
+                    <div class="1u" style="font-size: 0.8em; line-height: 1.5em; text-align: center;">Di Guo </div>
+                    <div class="1u" style="font-size: 0.8em; line-height: 1.5em; text-align: center;">Fuchun Sun </div>
+                    <div class="1u$" style="font-size: 0.8em; line-height: 1.5em; text-align: center;">Huaping Liu <sup>$</sup></div>
+                </div> -->
+            <h6 style="color: #a2a2a2; margin-bottom: 2em;">
+                <sup>$</sup> Corresponding author: peterchenneu@gmail.com<br>
+                <sup>1</sup> The Center for  Intelligent  Control  and  Telescience,  Tsinghua  Shenzhen  International Graduate School, Shenzhen, China<br>
+                <sup>2</sup> Tencent Robotics X Lab, Shenzhen, China<br>
+            </h6>
+
+            <hr>
+            <br>
+            <b><h2 style="text-align: center;">Abstract</h2></b>
+
+            <p>
+                Object rearranging is one of the most common deformable manipulation tasks, where the robot needs to rearrange a deformable object into a goal configuration. Previous studies focus on designing an expert system for each specific task by model-based or data-driven approaches and the application scenarios are therefore limited.Some research has been attempting to design a general framework to obtain more advanced manipulation capabilities for deformable rearranging tasks, with lots of progress achieved in simulation. However, transferring from simulation to reality is difficult due to the limitation of the end-to-end CNN architecture.To address these challenges, we design a local GNN (graph neural network) based learning method, which utilizes two representation graphs to encode keypoints detected from images. Self-attention is applied for graph updating and cross-attention is applied for generating manipulation actions. Extensive experiments have been conducted to demonstrate that our framework is effective in multiple 1-D (rope, rope ring) and 2-D (cloth) rearranging tasks in simulation and can be easily transferred to a real robot by fine-tuning a keypoint detector.
+            </p>
+
+            <div class="12u$"><a href=""><span class="image fit"><img src="images/deformableweb/home.png" alt=""></span></a></div>
+
+            <p>We formulate the rearranging task into a sequence to sequence problem: generating the Q-value distribution of actions (represent the probability of picking and placing on certain keypoint pair) from the keypoints detected from current and goal images. We use a local GNN to solve this problem. The Model trained in simulation can be directly transferred to reality with only keypoint detector fine-tune.
+            </p>       
+            <hr>
+
+            <b><h2 style="text-align: center;">Summary Video</h2></b>
+            <div class="12u$">
+                <video class="image fit" style="margin-bottom: 0.5em;" controls="" data-video="0">
+                    <source src="images/deformableweb/main.mp4" type="video/mp4">Your browser does not support this video.
+                    </video>
+                </div>
+            <hr>
+            <!-- Insert a video from youtube -->
+            <!-- <iframe id="match-video" width="880" height="495" style="margin-bottom: 2em; margin-left: auto; margin-right: auto; display:block;" src="https://www.youtube.com/embed/-OkyX7ZlhiU?rel=0" frameborder="0" allowfullscreen="">
+            </iframe> width="880" height="495"  -->
+
+
+            <b><h2 style="text-align: center;">Algorithm</h2></b>
+
+            <div class="12u$"><a href=""><span class="image fit"><img src="images/deformableweb/rl.png" alt=""></span></a></div>
+
+            <p>
+                 Our RL agent encodes the representation vectors of keypoints by self-attention layers firstly and gets 2 local dynamic graphs to represent the current and goal configurations. Cross-attention layers are used to map the 2 graphs to the q-value matrix. Coordinates of the picking point are the keypoints in the current image and coordinates of the placing point are the keypoints in the goal image.
+            </p>
+
+            <hr>
+            <b><h2 style="text-align: center;">Experiment Results</h2></b>
+            <h3>Simulation experiment</h3>
+            <p>We first conduct experiments to evaluate the performance of our framework on multiple rearranging tasks. The robot is given random goal configurations by only visual input, and the robot needs to rearrange the deformable object to the goal configurations without any sub-goal input. We define that the robot completes a rearranging task within 30 picking and placing actions as a success, and the rest is a failure. 
+            </p>
+
+            <table>
+            <tr>
+
+            <td>
+            <b><h3 style="text-align: center;">cloth folding</h3></b>
+            <div class="12u$">
+                <video class="image fit" style="margin-bottom: 0.5em;" controls="" data-video="0">
+                    <source src="images/deformableweb/cloth_fold.mp4" type="video/mp4">Your browser does not support this video.
+                    </video>
+                </div>
+            <b><h3 style="text-align: center;">successful rate: 86%</h3></b>
+            </td>
+
+            <td>
+            <b><h3 style="text-align: center;">cloth flattening</h3></b>
+            <div class="12u$">
+                <video class="image fit" style="margin-bottom: 0.5em;" controls="" data-video="0">
+                    <source src="images/deformableweb/cloth_flat.mp4" type="video/mp4">Your browser does not support this video.
+                    </video>
+                </div>
+            <b><h3 style="text-align: center;">successful rate: 90%</h3></b>
+            </td>
+            
+            <td>
+            <b><h3 style="text-align: center;">square shape</h3></b>
+            <div class="12u$">
+                <video class="image fit" style="margin-bottom: 0.5em;" controls="" data-video="0">
+                    <source src="images/deformableweb/square.mp4" type="video/mp4">Your browser does not support this video.
+                    </video>
+                </div>
+            <b><h3 style="text-align: center;">successful rate: 100%</h3></b>
+            </td>
+
+            <td>
+            <b><h3 style="text-align: center;">moving ring</h3></b>
+            <div class="12u$">
+                <video class="image fit" style="margin-bottom: 0.5em;" controls="" data-video="0">
+                    <source src="images/deformableweb/move.mp4" type="video/mp4">Your browser does not support this video.
+                    </video>
+                </div>
+            <b><h3 style="text-align: center;">successful rate: 70%</h3></b>
+            </td>
+            </tr>
+
+
+            <tr>
+
+            <td>
+            <b><h3 style="text-align: center;">circle shape</h3></b>
+            <div class="12u$">
+                <video class="image fit" style="margin-bottom: 0.5em;" controls="" data-video="0">
+                    <source src="images/deformableweb/circle.mp4" type="video/mp4">Your browser does not support this video.
+                    </video>
+                </div>
+            <b><h3 style="text-align: center;">successful rate: 72%</h3></b>
+            </td>
+
+            <td>
+            <b><h3 style="text-align: center;">rope straightening</h3></b>
+            <div class="12u$">
+                <video class="image fit" style="margin-bottom: 0.5em;" controls="" data-video="0">
+                    <source src="images/deformableweb/l_shape.mp4" type="video/mp4">Your browser does not support this video.
+                    </video>
+                </div>
+            <b><h3 style="text-align: center;">successful rate: 100%</h3></b>
+            </td>
+            
+            <td>
+            <b><h3 style="text-align: center;">N shape</h3></b>
+            <div class="12u$">
+                <video class="image fit" style="margin-bottom: 0.5em;" controls="" data-video="0">
+                    <source src="images/deformableweb/N_shape.mp4" type="video/mp4">Your browser does not support this video.
+                    </video>
+                </div>
+            <b><h3 style="text-align: center;">successful rate: 75%</h3></b>
+            </td>
+
+            <td>
+            <b><h3 style="text-align: center;">V shape</h3></b>
+            <div class="12u$">
+                <video class="image fit" style="margin-bottom: 0.5em;" controls="" data-video="0">
+                    <source src="images/deformableweb/V_shape.mp4" type="video/mp4">Your browser does not support this video.
+                    </video>
+                </div>
+            <b><h3 style="text-align: center;">successful rate: 98%</h3></b>
+            </td>
+            </tr>
+            
+           </table>
+
+            <!-- <h6 style="color: #a2a2a2; margin-bottom: 2em;">Note:</h6> -->
+
+            <h3>Real Experiments</h3>
+            <p>We test our proposed method in a physical environment. The rope is placed on the platform, and a UR5 robotic manipulator with a suction cup is placed in front of the platform for picking and placing. Images are captured with a Realsence camera, which is fixed on the top of the platform.
+            </p>
+
+            <p>The experimental results demonstrate that the skills our framework learned in the simulation are also effective in reality. Our model can learn multiple goal-conditioned deformable object rearranging skills from a large quantity of data in simulation and these skills can be used in reality with only keypoint detector fine-tune.
+            </p>
+
+            <table>
+            <tr>
+
+            <td>
+            <b><h3 style="text-align: center;">rope straightening</h3></b>
+            <div class="12u$">
+                <video class="image fit" style="margin-bottom: 0.5em;" controls="" data-video="0">
+                    <source src="images/deformableweb/real_straight_1.mp4" type="video/mp4">Your browser does not support this video.
+                    </video>
+                </div>
+            </td>
+            
+            <td>
+            <b><h3 style="text-align: center;">N shape</h3></b>
+            <div class="12u$">
+                <video class="image fit" style="margin-bottom: 0.5em;" controls="" data-video="1">
+                    <source src="images/deformableweb/real_n_1.mp4" type="video/mp4">Your browser does not support this video.
+                    </video>
+                </div>
+            </td>
+
+            <td>
+            <b><h3 style="text-align: center;">V shape</h3></b>
+            <div class="12u$">
+                <video class="image fit" style="margin-bottom: 0.5em;" controls="" data-video="2">
+                    <source src="images/deformableweb/real_v_1.mp4" type="video/mp4">Your browser does not support this video.
+                    </video>
+                </div>
+            </td>
+            </tr>
+            
+           </table>
+
+
+
+            <b><h3>Contact</h3></b>
+            <p>Have any questions, please feel free to contact <a href="https://dengyh16code.github.io/">Yuhong Deng</a></p>
+            <hr>
+
+            <div class="row">
+                <div class="6u 12u$(xsmall)">
+                    <p>March 8, 2020<br>
+                        Copyright &copy; <a href="https://dengyh16code.github.io/">Yuhong Deng</a>
+                    </p>
+                </div>
+                <!-- Share the website -->
+                <!-- <div class="6u$ 12u$(xsmall)" style="text-align: right;">
+                    <ul class="icons"><li><a href="https://twitter.com/intent/tweet?text=Learning%20Synergies%20between%20Pushing%20and%20Grasping%20with%20Self-supervised Deep%20Reinforcement%20Learning%20http://vpg.cs.princeton.edu" class="icon fa-twitter"><span class="label">Twitter</span>&nbsp;Tweet</a></li>&nbsp;&nbsp;&nbsp;&nbsp;<li><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fvpg.cs.princeton.edu%2F" class="icon fa-facebook-square"><span class="label">Facebook</span>&nbsp;&nbsp;Share</a></li></ul>
+                    <ul class="icons"></ul>
+                </div> -->
+            </div>
+        </section>
+    </div>
+
+    <!-- Copyright -->
+    <!-- <footer id="footer">
+            <div class="inner">
+                <ul class="copyright">
+                    <p>Copyright &copy; 2019 Yixuan Wei</p>
+                </ul>
+            </div>
+        </footer> -->
+
+    <script src="js/project/main.js"></script>
+    <script src="js/project/util.js"></script>
+    <script src="js/project/skel.min.js"></script>
+    <script src="js/project/jquery.min.js"></script>
+    <script src="js/project/jquery.poptrox.min.js"></script>
+</body>
+
+</html>

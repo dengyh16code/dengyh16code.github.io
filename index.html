@@ -1,72 +1,171 @@
-<!DOCTYPE html>
-<html class="no-js" lang="en">
+<!doctype html>
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Yuhong Deng</title>
-	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-	<link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
-    <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/styles.css" rel="stylesheet">
+  <title>Yuhong Deng</title>
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+  <link href="css/frame.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="css/controls.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="css/custom.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="js/menu.js"></script>
+  <script>
+    (function (i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+      a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-103598896-1', 'auto');
+    ga('send', 'pageview');
+  </script>
 </head>
 
 <body>
-    <div id="mobile-menu-open" class="shadow-large">
-        <i class="fa fa-bars" aria-hidden="true"></i>
+  <div class="menu-container"></div>
+  <div class="content-container">
+    <div class="content">
+      <div class="content-table flex-column">
+        <div class="flex-row">
+          <div class="flex-item flex-column">
+            <img class="image" id="me" src="images/me.jpeg">
+          </div>
+          <div class="flex-item flex-item-stretch flex-column">
+            <h2>Yuhong Deng</h2>
+            <p class="text">
+              I am a master student in Tsinghua university, majoring in Artificial Intelligence. <br>
+              My research focuses on robot vision, manipulation, reinforcement learning and deep learning,
+              to equip robots intelligent learning, manipulation and perception capabality.<br>
+              <b>Email: dengyh20@mails.tsinghua.edu.cn</b>
+            </p>
+          </div>
+        </div>
+        <div class="flex-row">
+          <div class="flex-item flex-column">
+            <h2>Education</h2>
+            <hr>
+          <div data-date="bachelor">
+              <h3>Tsinghua University, Beijing, China</h3>
+              <p>
+                I received Bachelor degree from the Department of Mechanical Engineering, Tsinghua University, in 2020.
+              </p>
+          </div>
+
+          <div data-date="master">
+              <h3>Tsinghua Shenzhen International Graduate School, Shenzhen, China</h3>
+              <p>
+                I have been studying for a master's degree of Artificial Intelligence(AI) in Tsinghua Shenzhen International Graduate School, Tsinghua University, since August 2020.<br />
+              </p>
+          </div>
+        </div>
+  
+
+          <!--Start Projects-->
+          <div class="flex-row full-width">
+            <div class="flex-item flex-column full-width">
+              <h2>Research</h2>
+              <hr>
+            </div>
+          </div>
+          <div class="flex-row">
+            <div class="flex-item flex-item-stretch flex-column">
+              <img class="image max-width-600" src="images/iros2022.png">
+            </div>
+            <div class="flex-item flex-item-stretch-6 flex-column">
+              <p class="text">
+                <span class="highlight-text">Deep Reinforcement Learning Based on Local GNN for Goal-conditioned Deformable Object Rearranging. </span><br>
+                <i><b>Yuhong Deng</b>, Chongkun Xia, Xueqian Wang, and Lipeng Chen</i><br>
+                <i>IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS2022)</i><br>
+                <a href="file/iros2022.pdf" target="_blank">PDF</a>
+                &nbsp;|&nbsp;
+                <a href="https://dengyh16code.github.io/deformable_web" target="_blank">Webpage</a><br>
+                Object rearranging is one of the most common deformable manipulation tasks, where the robot needs to rearrange a deformable object into a goal configuration. Previous studies focus on designing an expert system for each specific task by model-based or data-driven approaches and the application scenarios are therefore limited. Some research has been attempting to design a general framework to obtain more advanced manipulation capabilities for deformable rearranging tasks, with lots of progress achieved in simulation. However, transferring from simulation to reality is difficult due to the limitation of the end-to-end CNN architecture. To address these challenges, we design a local GNN (Graph Neural Network) based learning method, which utilizes two representation graphs to encode keypoints detected from images. Self-attention is applied for graph updating and cross-attention is applied for generating manipulation actions. Extensive experiments have been conducted to demonstrate that our framework is effective in multiple 1-D (rope, rope ring) and 2-D (cloth) rearranging tasks in simulation and can be easily transferred to a real robot by fine-tuning a keypoint detector.             
+              </p>
+            </div>
+          </div>
+          <div class="flex-row">
+            <div class="flex-item flex-item-stretch flex-column">
+              <img class="image max-width-600" src="images/smc2022.png">
+            </div>
+            <div class="flex-item flex-item-stretch-6 flex-column">
+              <p class="text">
+                <span class="highlight-text">Graph-Transporter: A Graph-based Learning Method for Goal-conditioned Deformable Object Rearranging Task.</span><br>
+                <i><b>Yuhong Deng</b>, Chongkun Xia, Xueqian Wang, and Lipeng Chen</i><br>
+                <i>International Conference on Systems, Man, and Cybernetics (IEEE SMC2022)</i><br>
+                <a href="file/smc2022.pdf" target="_blank">PDF</a><br>
+                Rearranging and manipulating deformable objects is a long-standing challenge in robotic manipulation for the high dimensionality of configuration space and the complex dynamics of deformable objects. We present a novel framework, Graph-Transporter, for goal-conditioned deformable object rearranging tasks. To tackle the challenge of complex configuration space and dynamics, we represent the configuration space of a deformable object with a graph structure and the graph features are encoded by a graph convolution network. Our framework adopts an architecture based on Fully Convolutional Network (FCN) to output pixel-wise pick-and-place actions from only visual input. Extensive experiments have been conducted to validate the effectiveness of the graph representation of deformable object configuration. The experimental results also demonstrate that our framework is effective and general in handling goal-conditioned deformable object rearranging tasks. 
+              </p>
+            </div>
+          </div>
+          <div class="flex-row">
+            <div class="flex-item flex-item-stretch flex-column">
+              <img class="image max-width-600" src="images/rss2021.png">
+            </div>
+            <div class="flex-item flex-item-stretch-6 flex-column">
+              <p class="text">
+                <span class="highlight-text">MQA: Answering the Question via Robotic Manipulation.</span><br>
+                <i><b>Yuhong Deng</b>, Di Guo, Xiaofeng Guo, Naifu Zhang, Huaping Liu, and Fuchun Sun</i><br>
+                <i>Robotics: Science and System (RSS2021)</i><br>
+                <a href="file/rss2021.pdf" target="_blank">PDF</a>
+                &nbsp;&nbsp;|&nbsp;&nbsp;
+                <a href="http://www.roboticsproceedings.org/rss17/p044.pdf" target="_blank">Source</a>
+                &nbsp;&nbsp;|&nbsp;&nbsp;
+                <a href="https://dengyh16code.github.io/MQAweb" target="_blank">Webpage</a>
+                &nbsp;&nbsp;|&nbsp;&nbsp;
+                <a href="https://github.com/dengyh16code/MQA_dataset" target="_blank">Code and Dataset</a><br>
+                In this paper, we propose a novel task, Manipulation Question Answering (MQA), where the robot performs manipu- lation actions to change the environment in order to answer a given question. To solve this problem, a framework consisting of a QA module and a manipulation module is proposed. For the QA module, we adopt the method for the Visual Question Answering (VQA) task. For the manipulation module, a Deep Q Network (DQN) model is designed to generate manipulation actions for the robot to interact with the environment. We consider the situation where the robot continuously manipulating objects inside a bin until the answer to the question is found. Besides, a novel dataset that contains a variety of object models, scenarios and corresponding question-answer pairs is established in a simula- tion environment. Extensive experiments have been conducted to validate the effectiveness of the proposed framework.
+              </p>
+            </div>
+          </div>
+          <div class="flex-row">
+            <div class="flex-item flex-item-stretch flex-column">
+              <img class="image max-width-600" src="images/tii2021.png">
+            </div>
+            <div class="flex-item flex-item-stretch-6 flex-column">
+              <p class="text">
+                <span class="highlight-text">An Interactive Perception Method for Warehouse Automation in Smart Cities.</span><br>
+                <i>Huaping Liu, <b>Yuhong Deng</b>, Di Guo, Bin Fang, Fuchun Sun, Wuqiang Yang</i><br>
+                <i>IEEE Transactions on Industrial Informatics (TII2021)</i><br>
+                <a href="file/tii2021.pdf" target="_blank">PDF</a>
+                &nbsp;&nbsp;|&nbsp;&nbsp;
+                <a href="https://ieeexplore.ieee.org/document/8970574" target="_blank">Source</a><br>
+                The smart city is an integrated environment that heavily relies on intelligent robots, which provides the basis for the warehouse automation. However, a ware- house is a typical unstructured environment, and robotic grasp and manipulation are extremely important for the package, transfer, search, and so on. Currently, the most usual method is to detect the picking or grasping points for some specific end-effector including suction cup, gripper, or robotic hand. The manipulation performance is, there- fore, strongly influenced by the visual detector. To tackle this problem, the affordance map has recently been devel- oped. It characterizes the operation possibilities afforded by the operation scene and has been used for several grasp tasks. Nevertheless, the conventional affordance method often fails in complicated environments due to the mis- take calculation results. In this article, we develop a novel framework to integrate the interactive exploration with a composite robotic hand for robotic grasping in a compli- cated environment. The exploration strategy is obtained by a deep reinforcement learning procedure. The developed new composite hand, which integrates the suction cup and grippers, is used to test the merits of the proposed inter- active perception method. Experimental results show the proposed method significantly increases the manipulation efficiency and may bring great economic and social and benefits for smart cities.
+              </p>
+            </div>
+          </div>
+          <div class="flex-row">
+            <div class="flex-item flex-item-stretch flex-column">
+              <img class="image max-width-600" src="images/iros2019.png">
+            </div>
+            <div class="flex-item flex-item-stretch-6 flex-column">
+              <p class="text">
+                <span class="highlight-text">Deep Reinforcement Learning for Robotic Pushing and Picking in Cluttered Environment.</span><br>
+                <i><b>Yuhong Deng</b>, Xiaofeng Guo, Yixuan Wei, Kai Lu, Bin Fang, Di Guo, Huaping Liu, and Fuchun Sun</i><br>
+                <i>IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS2019)</i><br>
+                <a href="file/iros2019.pdf" target="_blank">PDF</a>
+                &nbsp;&nbsp;|&nbsp;&nbsp;
+                <a href="https://ieeexplore.ieee.org/document/8967899" target="_blank">Source</a>
+                &nbsp;&nbsp;|&nbsp;&nbsp;
+                <a href="https://weiyx16.github.io/RobotGrasping" target="_blank">Webpage</a>
+                &nbsp;&nbsp;|&nbsp;&nbsp;
+                <a href="https://github.com/weiyx16/Active-Perception" target="_blank">Code</a><br>
+                In this paper, a novel robotic grasping system is established to automatically pick up objects in cluttered scenes. A composite robotic hand composed of a suction cup and a gripper is designed for grasping the object stably. The suction cup is used for lifting the object from the clutter first and the gripper for grasping the object accordingly. We utilize the affordance map to provide pixel-wise lifting point candidates for the suction cup. To obtain a good affordance map, the active exploration mechanism is introduced to the system. An effective metric is designed to calculate the reward for the current affordance map, and a deep Q-Network (DQN) is employed to guide the robotic hand to actively explore the environment until the generated affordance map is suitable for grasping. Experimental results have demonstrated that the proposed robotic grasping system is able to greatly increase the success rate of the robotic grasping in cluttered scenes.
+              </p>
+            </div>
+          </div>
+          <!--End Projects-->
+        </div>
+      </div>
     </div>
-    <!-- End #mobile-menu-toggle -->
-    <header> <!-- class="sticky" -->
-        <div id="mobile-menu-close">
-            <span>Close</span> <i class="fa fa-times" aria-hidden="true"></i>
-        </div>
-        <ul id="menu" class="shadow">
-            <li>
-                <a href="#about">About</a>
-            </li>
-            <li>
-                <a href="https://dengyh16code.github.io/deformable_web" class="no-scroll">IROS2022</a>
-            </li>
-            <li>
-                <a href="https://github.com/dengyh16code" class="no-scroll">Github</a>
-            </li>
-            <!--
-                If you want to link to a external page
-                <li>
-                    <a href="https://google.com" class="no-scroll">Google</a>
-                </li>
-            -->
-        </ul>
-    </header>
-    <!-- End header -->
-
-    <div id="lead">
-        <div id="lead-content">
-            <h1>YUHONG DENG</h1>
-            <h2>Yuhong deng | A student at Tsinghua University</h2>
-            <a href="https://dengyh16code.github.io/deformable_web" class="btn-rounded-white">RESULTS Of IROS2022</a>
-            <br>
-            <br>
-        </div>
-        <!-- End #lead-content -->
-
-        <div id="lead-overlay"></div>
-
-        <div id="lead-down">
-            <span>
-                <i class="fa fa-chevron-down" aria-hidden="true"></i>
-            </span>
-        </div>
-        <!-- End #lead-down -->
-    </div>
-    <!-- End #lead -->
-
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="js/scripts.min.js"></script>
+  </div>
 </body>
 
 </html>

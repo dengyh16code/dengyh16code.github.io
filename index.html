@@ -37,9 +37,18 @@
     <div id="main">
       <div id="intro">
         <div id="intro-text">
-          <h1>Yuhong Deng</h1>
+          <h1>Yuhong Deng (邓宇鸿) </h1>
+          <h2> <a href="#" id="toggleLink">How to pronounce?</a> </h2>
+          
+          <audio id="myAudioPlayer" style="display:none;" controls>
+            <source src="images/pronounce.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
           <p>
-            I am a Ph.D. student in Computer Science at <a href="https://www.comp.nus.edu.sg/cs/"> National University of Singapore (NUS)</a>.
+            I am a first-year Ph.D. student in Computer Science at <a href="https://www.comp.nus.edu.sg/cs/"> National University of Singapore (NUS)</a>, 
+            advised by <a href="https://www.comp.nus.edu.sg/~dyhsu/"> Prof. David Hsu</a>. My research focuses on robotic perception, learning and control, with applications mainly on robotic manipulation.
+            <br>
+            <br>
             Previously, I received master's degree in Artifical Intelligence at <a href="https://www.tsinghua.edu.cn/en/">Tsinghua university</a> in 2023,
             advised by <a href="https://www.sigs.tsinghua.edu.cn/wxq_en/main.htm">Prof. Xueqian Wang</a>.           
             I received my bachelor's degree in Mechanical Engineering (Elite Program) at Tsinghua university in 2020,
@@ -47,8 +56,6 @@
             I have interned in <a href="https://www.tencent.com/en-us/">Tencent</a> and <a href="https://www.shlab.org.cn/">Shanghai AI Lab</a> etc.
             <br>
             <br>
-            My research focuses on robot vision, reinforcement learning and deep learning,
-            to equip robots with intelligent manipulation and perception capabality.
             Feel free to reach out for collaboration and discussion of research ideas.
             <br>
             Email: yuhongdeng [AT] u.nus.edu / dengyh_work [AT] outlook.com
@@ -61,7 +68,7 @@
           </p>
         </div>
         <div id="intro-image">
-          <img src="images/me.jpeg">
+          <img src="images/me_1.jpg">
         </div>
       </div>
 
@@ -261,6 +268,11 @@
 
 
         <!-- Talks -->
+
+        <div class="list-item talk" data-category="talk">
+          <p class="date">2023</p> I'm glad to join<a href="https://adacomp.comp.nus.edu.sg/"> Adaptive Computing Laboratory</a> led by <a href="https://www.comp.nus.edu.sg/~dyhsu/"> Prof. David Hsu</a>.
+        </div>
+
         <div class="list-item talk" data-category="talk">
           <p class="date">2023</p>I join National University of Singapore as a Ph.D. student.
         </div>
@@ -347,6 +359,13 @@
           }
         }
       }
+
+      document.getElementById("toggleLink").addEventListener("click", function(event) {
+      event.preventDefault(); // Prevent the default anchor link behavior
+      var audioPlayer = document.getElementById("myAudioPlayer");
+      audioPlayer.style.display = audioPlayer.style.display === "none" ? "block" : "none";
+      });
+
 
 
       update_isotope();

@@ -80,8 +80,9 @@ b {
 
 h1 {
   font-size: 2.4em;
-  line-height: 3em;
+  line-height: 1em;
   font-weight: 500;
+  margin-top: 0.9em;
 }
 
 /**************************************************/
@@ -123,9 +124,9 @@ h1 {
 }
 
 h2 {
-  font-size: 1.6em;
+  font-size: 1.4em;
   line-height: 2.4em;
-  margin-top: 0.5em;
+  margin-top: 0.0em;
   color: #a0a8b0;
 }
 

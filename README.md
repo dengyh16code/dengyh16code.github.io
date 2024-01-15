@@ -1,2 +1,2 @@
 # dengyh16code.github.io
-A personal homepage of a Tsinghua University Student
+This is the source code to Yuhong Deng's public academic website: https://www.yuhongdeng.com/ .

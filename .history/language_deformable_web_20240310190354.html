@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Learning Language-Conditioned Deformable Object Manipulation with Graph Dynamics</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="./static/css/academicons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+</head>
+
+<body>
+
+
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column has-text-centered">
+                        <h1 class="title is-1 publication-title">Learning Language-Conditioned Deformable Object Manipulation with Graph Dynamics</h1>
+                        <h3 class="title is-4 conference-authors"><a target="_blank" href="https://2024.ieee-icra.org/">ICRA 2024</a></h3>
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block">
+                              <a target="_blank" href="https://www.yuhongdeng.com/">Yuhong Deng</a><sup>1&#8225</sup>,</span>
+                            <span class="author-block">
+                              <a target="_blank" >Kai Mo</a><sup>2&#8225</sup>,</span>
+                            <span class="author-block">
+                                <a target="_blank" >Chongkun Xia</a><sup>2</sup>,</span>
+                            <span class="author-block">
+                                <a target="_blank" >Xueqian Wang</a><sup>2</sup>,</span>
+                            </span>
+                          </div>
+
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block"><sup>1</sup>National University of Singapore; </span>
+                            <span class="author-block"><sup>2</sup>Tsinghua University; </span>
+                            <span class="author-block"><sup>&#8225;</sup>Equal Contribution </span>
+                        </div>
+                        <div class="is-size-5 publication-authors">
+
+                        </div>
+                        <!-- <div class="is-size-5 publication-authors">
+                        <span class="author-block">Work done during the first author's internship at NVIDIA</span>
+                        </div> -->
+
+                        <!-- <div class="is-size-5 publication-authors">
+                        <span class="author-block"><sup>&dagger;</sup>Equal Contribution</span>
+                        <span class="author-block"><sup>&#8225;</sup>Equal Advising </span>
+                    </div> -->
+
+                        <div class="column has-text-centered">
+                            <div class="publication-links">
+
+                                 <!-- Paper Link. -->
+                                <span class="link-block">
+                                    <a target="_blank" href="media/icra2024.pdf"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fas fa-file-pdf"></i>
+                                        </span>
+                                        <span>PDF</span>
+                                    </a>
+                                </span>
+ 
+                                <!-- Paper Link. -->
+                                <span class="link-block">
+                                    <a target="_blank" href="https://arxiv.org/abs/2303.01310"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="ai ai-arxiv"></i>
+                                        </span>
+                                        <span>arXiv</span>
+                                    </a>
+                                </span>
+
+                                <!-- Code Link. -->   
+                                <span class="link-block">
+                                    <a target="_blank" href="https://github.com/dengyh16code/language_deformable"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fab fa-github"></i>
+                                        </span>
+                                        <span>Code</span>
+                                    </a>
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="padding: 0">
+        <div class="container is-max-desktop">
+            <!-- Abstract. -->
+            <div class="columns is-centered has-text-centered">
+                <video poster="" id="" autoplay controls muted loop width="100%" playbackRate=2.0 style="border-radius: 5px;">
+                    <source src="media/icra2024/videos/summary.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container is-max-desktop">
+            <!-- Abstract. -->
+            <div class="columns is-centered has-text-centered">
+                <div class="column">
+                    <h2 class="title is-3">Abstract</h2>
+                    <div class="content has-text-justified">
+                        <p style="font-size: 125%">
+                            Multi-task learning of deformable object manipulation is a challenging problem in robot manipulation. Most previous works address this problem in a goal-conditioned way and adapt goal images to specify different tasks, which limits the multi-task learning performance and can not generalize to new tasks. Thus, we adapt language instruction to specify deformable object manipulation tasks and propose a learning framework. We first design a unified Transformer-based architecture to understand multi-modal data and output picking and placing action. Besides, we have introduced the visible connectivity graph to tackle nonlinear dynamics and complex configuration of the deformable object. Both simulated and real experiments have demonstrated that the proposed method is effective and can generalize to unseen instructions and tasks. Compared with the state-of-the-art method, our method achieves higher success rates (87.2% on average) and has a 75.6% shorter inference time. We also demonstrate that our method performs well in real-world experiments. 
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container is-max-widescreen">
+            <div class="rows">
+                <div class="rows is-centered ">
+                    <div class="row is-full-width">
+                        <h2 class="title is-3"><span class="dvima">Solution framework</span></h2>
+                        <p style="font-size: 125%">
+                            We design a unified Transformer-based model architecture to understand the multi-modal data and output picking and placing action with task completion prediction. We introduce a visible connectivity graph to tackle deformable objects’ complex configurations and dynamics.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <br>
+            
+            <div class="columns">
+                <div class="column">
+                    <img src="media/images/overview.png" class="interpolation-image" alt="" />
+                    <br>
+                </div>
+                <div class="column">
+                    <img src="media/images/model.png" class="interpolation-image" alt="" />
+                    <br>
+                </div>
+            </div>
+            
+         
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container is-max-widescreen">
+            <div class="rows">
+                <div class="rows is-centered ">
+                    <div class="row is-full-width">
+                        <h2 class="title is-3"><span class="dvima">Videos of real-world experiments</span></h2>
+                        <p style="font-size: 125%">
+                            We evaluate the performance of our framework on a kinova robot with
+                            a standard two-finger Robotiq gripper. The experiments include 5 types of 
+                            language-conditioned manipulation tasks.
+                        </p>
+                    <img src="media/images/task.png" class="interpolation-image" alt="Interpolate start reference image." />
+                    <br/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="hero is-light is-small"> -->
+        <div>
+
+            <div class="hero-body">
+                <div class="container">
+                    <div id="results-carousel" class="carousel results-carousel">
+                        <div class="item">
+                            <video poster="" id="" autoplay controls muted loop height="100%" playbackRate=2.0>
+                                <source src="media/videos/corner1_3x.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="item">
+                            <video poster="" id="" autoplay controls muted loop height="100%" playbackRate=2.0>
+                                <source src="media/videos/tri1_3x.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="item">
+                            <video poster="" id="" autoplay controls muted loop height="100%" playbackRate=2.0>
+                                <source src="media/videos/half1_3x.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="item">
+                            <video poster="" id="" autoplay controls muted loop height="100%" playbackRate=2.0>
+                                <source src="media/videos/tshirt1_3x.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="item">
+                            <video poster="" id="" autoplay controls muted loop height="100%" playbackRate=2.0>
+                                <source src="media/videos/trousers1_3x.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="container">
+                    <div id="results-carousel" class="carousel results-carousel">
+                        <div class="item">
+                            <video poster="" id="" autoplay controls muted loop height="100%" playbackRate=2.0>
+                                <source src="media/videos/tshirt2_3x.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="item">
+                            <video poster="" id="" autoplay controls muted loop height="100%" playbackRate=2.0>
+                                <source src="media/videos/trousers2_3x.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="item">
+                            <video poster="" id="" autoplay controls muted loop height="100%" playbackRate=2.0>
+                                <source src="media/videos/corner2_3x.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="item">
+                            <video poster="" id="" autoplay controls muted loop height="100%" playbackRate=2.0>
+                                <source src="media/videos/tri2_3x.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="item">
+                            <video poster="" id="" autoplay controls muted loop height="100%" playbackRate=2.0>
+                                <source src="media/videos/half2_3x.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<section class="section" id="BibTeX">
+    <div class="container is-max-widescreen content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@article{deng2024langdef,
+    title     = {Learning Language-Conditioned Deformable Object Manipulation with Graph Dynamics},
+    author    = {Yuhong Deng and Kai Mo and Chongkun Xia and Xueqian Wang},
+    journal = {arXiv preprint arXiv: Arxiv-2303.01310},
+    year      = {2024},
+  }</code></pre>
+    </div>
+</section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column">
+                    <div class="content has-text-centered">
+                        <p>
+                            Website template borrowed from <a
+                                href="https://github.com/nerfies/nerfies.github.io">NeRFies</a>
+                                and <a href="https://github.com/cliport/cliport.github.io">CLIPort</a>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

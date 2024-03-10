@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Deep Reinforcement Learning Based on Local GNN for Goal-conditioned Deformable Object Rearranging</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="./static/css/academicons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+</head>
+
+<body>
+
+
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column has-text-centered">
+                        <h1 class="title is-1 publication-title">Deep Reinforcement Learning Based on Local GNN for Goal-conditioned Deformable Object Rearranging</h1>
+                        <h3 class="title is-4 conference-authors"><a target="_blank" href="https://ieee-iros.org/">IROS 2023</a></h3>
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block">
+                              <a target="_blank" href="https://www.yuhongdeng.com/">Yuhong Deng</a><sup>1,2</sup>,</span>
+                            <span class="author-block">
+                              <a target="_blank" >Chongkun xia</a><sup>1</sup>,</span>
+                            <span class="author-block">
+                                <a target="_blank" >Xueqian Wang</a><sup>1</sup>,</span>
+                            <span class="author-block">
+                                <a target="_blank" >Lipeng Chen</a><sup>2</sup>,</span>
+                            </span>
+                          </div>
+
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block"><sup>1</sup>Tsinghua University; </span>
+                            <span class="author-block"><sup>2</sup>Tencent Robotics X Lab; </span>
+                        </div>
+                        <div class="is-size-5 publication-authors">
+
+                        </div>
+                        <!-- <div class="is-size-5 publication-authors">
+                        <span class="author-block">Work done during the first author's internship at NVIDIA</span>
+                        </div> -->
+
+                        <!-- <div class="is-size-5 publication-authors">
+                        <span class="author-block"><sup>&dagger;</sup>Equal Contribution</span>
+                        <span class="author-block"><sup>&#8225;</sup>Equal Advising </span>
+                    </div> -->
+
+                        <div class="column has-text-centered">
+                            <div class="publication-links">
+
+                                 <!-- Paper Link. -->
+                                <span class="link-block">
+                                    <a target="_blank" href="https://arxiv.org/pdf/2302.10446.pdf"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fas fa-file-pdf"></i>
+                                        </span>
+                                        <span>PDF</span>
+                                    </a>
+                                </span>
+ 
+                                <!-- Paper Link. -->
+                                <span class="link-block">
+                                    <a target="_blank" href="https://arxiv.org/abs/2302.10446"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="ai ai-arxiv"></i>
+                                        </span>
+                                        <span>arXiv</span>
+                                    </a>
+                                </span>
+
+                                <!-- Code Link. -->   
+                                <span class="link-block">
+                                    <a target="_blank" href="https://github.com/dengyh16code/deformable-gnn"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fab fa-github"></i>
+                                        </span>
+                                        <span>Code</span>
+                                    </a>
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="padding: 0">
+        <div class="container is-max-desktop">
+            <!-- Abstract. -->
+            <div class="columns is-centered has-text-centered">
+                <video poster="" id="" autoplay controls muted loop width="100%" playbackRate=2.0 style="border-radius: 5px;">
+                    <source src="media/videos/iros2022/main.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container is-max-desktop">
+            <!-- Abstract. -->
+            <div class="columns is-centered has-text-centered">
+                <div class="column">
+                    <h2 class="title is-3">Abstract</h2>
+                    <div class="content has-text-justified">
+                        <p style="font-size: 125%">
+                        Object rearranging is one of the most common deformable manipulation tasks, where the robot needs to rearrange a deformable object into a goal configuration. Previous studies focus on designing an expert system for each specific task by model-based or data-driven approaches and the application scenarios are therefore limited.Some research has been attempting to design a general framework to obtain more advanced manipulation capabilities for deformable rearranging tasks, with lots of progress achieved in simulation. However, transferring from simulation to reality is difficult due to the limitation of the end-to-end CNN architecture.To address these challenges, we design a local GNN (graph neural network) based learning method, which utilizes two representation graphs to encode keypoints detected from images. Self-attention is applied for graph updating and cross-attention is applied for generating manipulation actions. Extensive experiments have been conducted to demonstrate that our framework is effective in multiple 1-D (rope, rope ring) and 2-D (cloth) rearranging tasks in simulation and can be easily transferred to a real robot by fine-tuning a keypoint detector.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container is-max-widescreen">
+            <div class="rows">
+                <div class="rows is-centered ">
+                    <div class="row is-full-width">
+                        <h2 class="title is-3"><span class="dvima">Solution framework</span></h2>
+                        <p style="font-size: 125%">
+                            Our RL agent encodes the representation vectors of keypoints by self-attention layers firstly and gets 2 local dynamic graphs to represent the current and goal configurations. Cross-attention layers are used to map the 2 graphs to the q-value matrix. Coordinates of the picking point are the keypoints in the current image and coordinates of the placing point are the keypoints in the goal image.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <br>
+            
+            <div class="columns">
+                <div class="column">
+                    <img src="media/images/iros2022/home.png" class="interpolation-image" alt="" />
+                    <br>
+                </div>
+                <div class="column">
+                    <img src="media/images/iros2022/rl.png" class="interpolation-image" alt="" />
+                    <br>
+                </div>
+            </div>
+            
+         
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container is-max-widescreen">
+            <div class="rows">
+                <div class="rows is-centered ">
+                    <div class="row is-full-width">
+                        <h2 class="title is-3"><span class="dvima">Simulation experiments</span></h2>
+                        <p style="font-size: 125%">
+                            We first conduct experiments to evaluate the performance of our framework on multiple rearranging tasks. The robot is given random goal configurations by only visual input, and the robot needs to rearrange the deformable object to the goal configurations without any sub-goal input. We define that the robot completes a rearranging task within 30 picking and placing actions as a success, and the rest is a failure. 
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="hero is-light is-small"> -->
+        <div>
+
+            <div class="hero-body">
+                <div class="container">
+                    <div id="results-carousel" class="carousel results-carousel">
+                        <div class="item">
+                            <video poster="" id="" autoplay controls muted loop height="100%" playbackRate=2.0>
+                                <source src="media/videos/iros2022/circle.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="item">
+                            <video poster="" id="" autoplay controls muted loop height="100%" playbackRate=2.0>
+                                <source src="media/videos/iros2022/cloth_flat.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="item">
+                            <video poster="" id="" autoplay controls muted loop height="100%" playbackRate=2.0>
+                                <source src="media/videos/iros2022/cloth_fold.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="item">
+                            <video poster="" id="" autoplay controls muted loop height="100%" playbackRate=2.0>
+                                <source src="media/videos/iros2022/l_shape.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="container">
+                    <div id="results-carousel" class="carousel results-carousel">
+                        <div class="item">
+                            <video poster="" id="" autoplay controls muted loop height="100%" playbackRate=2.0>
+                                <source src="media/videos/iros2022/move.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="item">
+                            <video poster="" id="" autoplay controls muted loop height="100%" playbackRate=2.0>
+                                <source src="media/videos/iros2022/N_shape.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="item">
+                            <video poster="" id="" autoplay controls muted loop height="100%" playbackRate=2.0>
+                                <source src="media/videos/iros2022/square.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="item">
+                            <video poster="" id="" autoplay controls muted loop height="100%" playbackRate=2.0>
+                                <source src="media/videos/iros2022/V_shape.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="section">
+        <div class="container is-max-widescreen">
+            <div class="rows">
+                <div class="rows is-centered ">
+                    <div class="row is-full-width">
+                        <h2 class="title is-3"><span class="dvima">Real experiments</span></h2>
+                        <p style="font-size: 125%">
+                            We test our proposed method in a physical environment. The rope is placed on the platform, and a UR5 robotic manipulator with a suction cup is placed in front of the platform for picking and placing. Images are captured with a Realsence camera, which is fixed on the top of the platform.
+                            The experimental results demonstrate that the skills our framework learned in the simulation are also effective in reality. Our model can learn multiple goal-conditioned deformable object rearranging skills from a large quantity of data in simulation and these skills can be used in reality with only keypoint detector fine-tune.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="columns">
+   
+            <div class="column has-text-centered">
+                <video poster="" id="" autoplay controls muted loop height="100%" playbackRate=2.0 style="border-radius: 5px;">
+                    <source src="media/videos/iros2022/real_n_1.mp4" type="video/mp4">
+                </video>
+                <p style="font-size: 110%">N shape</p>
+            </div>
+            <div class="column has-text-centered">
+                <video poster="" id="" autoplay controls muted loop height="100%" playbackRate=2.0 style="border-radius: 5px;">
+                    <source src="media/videos/iros2022/real_v_1.mp4" type="video/mp4">
+                </video>
+                <p style="font-size: 110%">V shape</p>
+            </div>
+            <div class="column has-text-centered">
+                <video poster="" id="" autoplay controls muted loop height="100%" playbackRate=2.0 style="border-radius: 5px;">
+                    <source src="media/videos/iros2022/real_straight_1.mp4" type="video/mp4">
+                </video>
+                <p style="font-size: 110%">Straight line</p>
+            </div>
+ 
+ 
+        </div>
+    </section>
+
+<section class="section" id="BibTeX">
+    <div class="container is-max-widescreen content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@inproceedings{deng2022def,
+        title={Deep reinforcement learning based on local GNN for goal-conditioned deformable object rearranging},
+        author={Deng, Yuhong and Xia, Chongkun and Wang, Xueqian and Chen, Lipeng},
+        booktitle={2022 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},
+        pages={1131--1138},
+        year={2022},
+        organization={IEEE}
+      }</code></pre>
+    </div>
+</section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column">
+                    <div class="content has-text-centered">
+                        <p>
+                            Website template borrowed from <a
+                                href="https://github.com/nerfies/nerfies.github.io">NeRFies</a>
+                                and <a href="https://github.com/cliport/cliport.github.io">CLIPort</a>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

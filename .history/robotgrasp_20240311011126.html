@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Deep Reinforcement Learning for Robotic Pushing and Picking in Cluttered Environment</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="./static/css/academicons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+</head>
+
+<body>
+
+
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column has-text-centered">
+                        <h1 class="title is-1 publication-title">Deep Reinforcement Learning for Robotic Pushing and Picking in Cluttered Environment</h1>
+                        <h3 class="title is-4 conference-authors"><a target="_blank" href="https://www.iros2019.org/">IROS 2019</a></h3>
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block">
+                              <a target="_blank" href="https://www.yuhongdeng.com/">Yuhong Deng</a><sup>&#8225</sup>,</span>
+                            <span class="author-block">
+                                <a target="_blank" href="https://xiaofeng-guo.github.io/">Xiaofeng Guo</a><sup>&#8225</sup>,</span>
+                            <span class="author-block">
+                                <a target="_blank" href="https://weiyx16.github.io">Yixuan Wei</a><sup>&#8225</sup>,</span>
+                            <span class="author-block">
+                                <a target="_blank" >Kai Lu</a><sup>&#8225</sup>,</span>
+                            <span class="author-block">
+                                <a target="_blank" >Bin Fang</a>,</span>
+                            </span>
+                            <span class="author-block">
+                                <a target="_blank" >Di Guo</a>,</span>
+                            </span>
+                            <span class="author-block">
+                                <a target="_blank" href="https://sites.google.com/site/thuliuhuaping/home" >Huaping Liu</a>,</span>
+                            </span>
+                            <span class="author-block">
+                                <a target="_blank" >Fuchun Sun</a>,</span>
+                            </span>
+                          </div>
+
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block"> All authors are from Tsinghua University; </span>
+                            <span class="author-block"><sup>&#8225;</sup>Equal Contribution </span>
+                        </div>
+                        <div class="is-size-5 publication-authors">
+
+                        </div>
+                        <!-- <div class="is-size-5 publication-authors">
+                        <span class="author-block">Work done during the first author's internship at NVIDIA</span>
+                        </div> -->
+
+                        <!-- <div class="is-size-5 publication-authors">
+                        <span class="author-block"><sup>&dagger;</sup>Equal Contribution</span>
+                        <span class="author-block"><sup>&#8225;</sup>Equal Advising </span>
+                    </div> -->
+
+                        <div class="column has-text-centered">
+                            <div class="publication-links">
+
+                                 <!-- Paper Link. -->
+                                <span class="link-block">
+                                    <a target="_blank" href="https://arxiv.org/pdf/2302.10717.pdf"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fas fa-file-pdf"></i>
+                                        </span>
+                                        <span>PDF</span>
+                                    </a>
+                                </span>
+ 
+                                <!-- Paper Link. -->
+                                <span class="link-block">
+                                    <a target="_blank" href="https://arxiv.org/abs/2302.10717"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="ai ai-arxiv"></i>
+                                        </span>
+                                        <span>arXiv</span>
+                                    </a>
+                                </span>
+
+                                <!-- Code Link. -->   
+                                <span class="link-block">
+                                    <a target="_blank" href="https://github.com/weiyx16/Active-Perception"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fab fa-github"></i>
+                                        </span>
+                                        <span>Code</span>
+                                    </a>
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="padding: 0">
+        <div class="container is-max-desktop">
+            <!-- Abstract. -->
+            <div class="columns is-centered has-text-centered">
+                <video poster="" id="" autoplay controls muted loop width="100%" playbackRate=2.0 style="border-radius: 5px;">
+                    <source src="media/videos/iros2019/main.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container is-max-desktop">
+            <!-- Abstract. -->
+            <div class="columns is-centered has-text-centered">
+                <div class="column">
+                    <h2 class="title is-3">Abstract</h2>
+                    <div class="content has-text-justified">
+                        <p style="font-size: 125%">
+                            In this paper, a novel robotic grasping system is
+                            established to automatically pick up objects in cluttered scenes.
+                            A composite robotic hand composed of a suction cup and a
+                            gripper is designed for grasping the object stably. The suction
+                            cup is used for lifting the object from the clutter first and
+                            the gripper for grasping the object accordingly. We utilize the
+                            affordance map to provide pixel-wise lifting point candidates
+                            for the suction cup. To obtain a good affordance map, the
+                            active exploration mechanism is introduced to the system. An
+                            effective metric is designed to calculate the reward for the
+                            current affordance map, and a deep Q-Network (DQN) is
+                            employed to guide the robotic hand to actively explore the
+                            environment until the generated affordance map is suitable
+                            for grasping. Experimental results have demonstrated that the
+                            proposed robotic grasping system is able to greatly increase the
+                            success rate of the robotic grasping in cluttered scenes.
+                        </p>
+                        <img src="media/images/iros2019/concept.png" class="interpolation-image" alt="Interpolate start reference image." />
+                        <br/>
+                        <p style="font-size: 125%">
+                        Our grasping system consists of a composite
+                        robotic hand for grasping, a UR5 manipulator for reaching the operation
+                        point, and a Kinect camera as a vision sensor. We introduce the strategy of
+                        active exploration applied on the environment for more promising grasping. 
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container is-max-widescreen">
+            <div class="rows">
+                <div class="rows is-centered ">
+                    <div class="row is-full-width">
+                        <h2 class="title is-3"><span class="dvima">Pipeline</span></h2>
+                        <p style="font-size: 125%">
+                            The pipeline of the proposed robotic grasping system is
+                            illustrated in the aboved image. The RGB image and depth image
+                            of the scene are obtained firstly. The affordance ConvNet
+                            is used to calculate the affordance map based on both images. 
+                            A metric <i>Phi</i> is proposed to evaluate the credibility
+                            of the current affordance map. If <i>Phi</i> satisfies the metric, the
+                            composite robotic hand will implement the grasp operation.
+                            Otherwise, the obtained RGB image and depth image are fed
+                            into the DQN, which guides the composite robotic hand to
+                            give the environment an appropriate disturbance by pushing
+                            objects. This process will be iterated until all the objects in
+                            the environment are successfully picked.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <img src="media/images/iros2019/pipeline.png" class="interpolation-image" alt="Interpolate start reference image." />
+        </div>
+    </section>
+
+
+
+    <section class="section">
+        <div class="container is-max-widescreen">
+            <div class="rows">
+                <div class="rows is-centered ">
+                    <div class="row is-full-width">
+                        <h2 class="title is-3"><span class="dvima">Grasping Process</span></h2>
+                        <p style="font-size: 125%">
+                        Compared with other suction grasping systems, the proposed composite robotic hand uses the two fingers to hold the object after the suction cup lifts the object, which increases the stability of the grasp.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="columns">
+   
+            <div class="column has-text-centered">
+                <video poster="" id="" autoplay controls muted loop height="100%" playbackRate=2.0 style="border-radius: 5px;">
+                    <source src="media/videos/iros2019/grasp1.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="column has-text-centered">
+                <video poster="" id="" autoplay controls muted loop height="100%" playbackRate=2.0 style="border-radius: 5px;">
+                    <source src="media/videos/iros2019/grasp2.mp4" type="video/mp4">
+                </video>
+                </p>
+            </div>
+ 
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container is-max-widescreen">
+            <div class="rows">
+                <div class="rows is-centered ">
+                    <div class="row is-full-width">
+                        <h2 class="title is-3"><span class="dvima">Real experiments</span></h2>
+                        <p style="font-size: 125%">
+                            We test our DQN model on real environment, including a Kinect V2 camera as the image acquisition tool to get the RGB image and depth image of the scene and a UR5 manipulator to carry our composite robotic hand. We select 40 different objects to build different scenes for our robotic hand to grasp.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="hero-body">
+                <div class="container">
+                    <div id="results-carousel" class="carousel results-carousel">
+                        <div class="item">
+                            <video poster="" id="" autoplay controls muted loop height="100%" playbackRate=2.0>
+                                <source src="media/videos/iros2019/push1.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="item">
+                            <video poster="" id="" autoplay controls muted loop height="100%" playbackRate=2.0>
+                                <source src="media/videos/iros2019/push2.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="item">
+                            <video poster="" id="" autoplay controls muted loop height="100%" playbackRate=2.0>
+                                <source src="media/videos/iros2019/push3.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="item">
+                            <video poster="" id="" autoplay controls muted loop height="100%" playbackRate=2.0>
+                                <source src="media/videos/iros2019/push4.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+                <br>   
+            </div>
+        </div>
+    </section>
+
+
+
+<section class="section" id="BibTeX">
+    <div class="container is-max-widescreen content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>
+        @inproceedings{deng2019grasp,
+            title={Deep reinforcement learning for robotic pushing and picking in cluttered environment},
+            author={Deng, Yuhong and Guo, Xiaofeng and Wei, Yixuan and Lu, Kai and Fang, Bin and Guo, Di and Liu, Huaping and Sun, Fuchun},
+            booktitle={2019 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},
+            pages={619--626},
+            year={2019},
+            organization={IEEE}
+          } 
+    </code></pre>
+    </div>
+</section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column">
+                    <div class="content has-text-centered">
+                        <p>
+                            Website template borrowed from <a
+                                href="https://github.com/nerfies/nerfies.github.io">NeRFies</a>
+                                and <a href="https://github.com/cliport/cliport.github.io">CLIPort</a>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

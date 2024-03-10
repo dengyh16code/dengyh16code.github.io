@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MQA: Answering the Question via Robotic Manipulation</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="./static/css/academicons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+</head>
+
+<body>
+
+
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column has-text-centered">
+                        <h1 class="title is-1 publication-title">MQA: Answering the Question via Robotic Manipulation</h1>
+                        <h3 class="title is-4 conference-authors"><a target="_blank" href="https://roboticsconference.org/2021/">RSS 2021</a></h3>
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block">
+                              <a target="_blank" href="https://www.yuhongdeng.com/">Yuhong Deng</a><sup>&#8225</sup>,</span>
+                            <span class="author-block">
+                              <a target="_blank" >Di Guo</a><sup>&#8225</sup>,</span>
+                            <span class="author-block">
+                                <a target="_blank" href="https://xiaofeng-guo.github.io/">Xiaofeng Guo</a>,</span>
+                            <span class="author-block">
+                                <a target="_blank" >Naifu Zhang</a>,</span>
+                            </span>
+                            <span class="author-block">
+                                <a target="_blank" href="https://sites.google.com/site/thuliuhuaping/home" >Huaping Liu</a>,</span>
+                            </span>
+                            <span class="author-block">
+                                <a target="_blank" >Fuchun Sun</a>,</span>
+                            </span>
+                          </div>
+
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block"> All authors are from Tsinghua University; </span>
+                            <span class="author-block"><sup>&#8225;</sup>Equal Contribution </span>
+                        </div>
+                        <div class="is-size-5 publication-authors">
+
+                        </div>
+                        <!-- <div class="is-size-5 publication-authors">
+                        <span class="author-block">Work done during the first author's internship at NVIDIA</span>
+                        </div> -->
+
+                        <!-- <div class="is-size-5 publication-authors">
+                        <span class="author-block"><sup>&dagger;</sup>Equal Contribution</span>
+                        <span class="author-block"><sup>&#8225;</sup>Equal Advising </span>
+                    </div> -->
+
+                        <div class="column has-text-centered">
+                            <div class="publication-links">
+
+                                 <!-- Paper Link. -->
+                                <span class="link-block">
+                                    <a target="_blank" href="https://www.roboticsproceedings.org/rss17/p044.pdf"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fas fa-file-pdf"></i>
+                                        </span>
+                                        <span>PDF</span>
+                                    </a>
+                                </span>
+ 
+                                <!-- Paper Link. -->
+                                <span class="link-block">
+                                    <a target="_blank" href="https://arxiv.org/abs/2003.04641"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="ai ai-arxiv"></i>
+                                        </span>
+                                        <span>arXiv</span>
+                                    </a>
+                                </span>
+
+                                <!-- Code Link. -->   
+                                <span class="link-block">
+                                    <a target="_blank" href="https://github.com/dengyh16code/MQA_dataset"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fab fa-github"></i>
+                                        </span>
+                                        <span>Code</span>
+                                    </a>
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="padding: 0">
+        <div class="container is-max-desktop">
+            <!-- Abstract. -->
+            <div class="columns is-centered has-text-centered">
+                <video poster="" id="" autoplay controls muted loop width="100%" playbackRate=2.0 style="border-radius: 5px;">
+                    <source src="media/videos/rss2021/rss2021.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container is-max-desktop">
+            <!-- Abstract. -->
+            <div class="columns is-centered has-text-centered">
+                <div class="column">
+                    <h2 class="title is-3">Abstract</h2>
+                    <div class="content has-text-justified">
+                        <p style="font-size: 125%">
+                            In this paper, we propose a novel task, Manipulation
+                            Question Answering (MQA), where the robot performs manipulation actions to change the environment in order to answer a
+                            given question. To solve this problem, a framework consisting of a
+                            QA module and a manipulation module is proposed. For the QA
+                            module, we adopt the method for the Visual Question Answering
+                            (VQA) task. For the manipulation module, a Deep Q Network
+                            (DQN) model is designed to generate manipulation actions for the
+                            robot to interact with the environment. We consider the situation
+                            where the robot continuously manipulating objects inside a bin
+                            until the answer to the question is found. Besides, a novel
+                            dataset that contains a variety of object models, scenarios and
+                            corresponding question-answer pairs is established in a simulation environment. Extensive experiments have been conducted to
+                            validate the effectiveness of the proposed framework.
+                        </p>
+                        <img src="media/images/rss2021/overview.png" class="interpolation-image" alt="Interpolate start reference image." />
+                        <br/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container is-max-widescreen">
+            <div class="rows">
+                <div class="rows is-centered ">
+                    <div class="row is-full-width">
+                        <h2 class="title is-3"><span class="dvima">MQA Dataset</span></h2>
+                        <p style="font-size: 125%">
+                            As our task is newly proposed, there is no suitable off-theshelf dataset for experiments. Therefore, we establish our own
+                            dataset for the MQA task. The MQA dataset is built under the
+                            V-REP simulation environment, and it is composed of a
+                            variety of 3D object models, different scenes, and corresponding
+                            question-answer pairs for every scene.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <img src="media/images/rss2021/dataset.png" class="interpolation-image" alt="Interpolate start reference image." />
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container is-max-widescreen">
+            <div class="rows">
+                <div class="rows is-centered ">
+                    <div class="row is-full-width">
+                        <h2 class="title is-3"><span class="dvima">Algorithm</span></h2>
+                        <p style="font-size: 125%">
+                            The proposed MQA Algorithm is mainly composed of two
+                            parts, manipulation module and QA module. An overview of
+                            the workflow is demonstrated in Fig.6. When a new MQA
+                            task starts, the manipulation module will be activated first. The
+                            manipulation module will take the RGBD images of the scene
+                            and the question as input and output manipulation actions.
+                            The agent explores the environment until the question can
+                            be answered. The manipulation module decides when to stop
+                            exploring. Then, the QA module will give an answer based on
+                            the initial scene, the final scene and the question
+                        </p>
+                    </div>
+                </div>
+                <br>
+                <img src="media/images/rss2021/system.png" class="interpolation-image" alt="Interpolate start reference image." />
+            </div>
+        </div>
+    </section>
+
+
+    <section class="section">
+        <div class="container is-max-widescreen">
+            <div class="rows">
+                <div class="rows is-centered ">
+                    <div class="row is-full-width">
+                        <h2 class="title is-3"><span class="dvima">Simulation experiments</span></h2>
+                        <p style="font-size: 125%">
+                        We test our QA system in new scenes. First, we use our action model to generate action. When the action model concludes that there is no need for action, the QA module will give an answer.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="columns">
+   
+            <div class="column has-text-centered">
+                <video poster="" id="" autoplay controls muted loop height="100%" playbackRate=2.0 style="border-radius: 5px;">
+                    <source src="media/videos/rss2021/count.mp4" type="video/mp4">
+                </video>
+                <p style="font-size: 110%">Q: How many keyboards are there in the bin? A: 3</p>
+            </div>
+            <div class="column has-text-centered">
+                <video poster="" id="" autoplay controls muted loop height="100%" playbackRate=2.0 style="border-radius: 5px;">
+                    <source src="media/videos/rss2021/exist.mp4" type="video/mp4">
+                </video>
+                <p style="font-size: 110%">Q: Is there a key in the bin? A: yes
+                </p>
+            </div>
+ 
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container is-max-widescreen">
+            <div class="rows">
+                <div class="rows is-centered ">
+                    <div class="row is-full-width">
+                        <h2 class="title is-3"><span class="dvima">Real experiments</span></h2>
+                        <p style="font-size: 125%">
+                            We used UR5 robot, Kinect camera and real objects similar to dataset to build the experimental scene, and transferred our model from simulation to the real world directly. This is possible because the output of the model is a path independent of dynamics and the images in the simulation are similar to the real images.
+
+                            The robot first thinks there may be a key under the box, so the robot sucks it away and finds a key. After sucking the box away, there may be a key under the milk carton, so the robot pushes the milk carton away and finds no key. After two actions , the robot concludes there is no need for action and outputs the answer 1.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+    </section>
+
+    <section class="section" style="padding: 0">
+        <div class="container is-max-desktop">
+            <!-- Abstract. -->
+            <div class="columns is-centered has-text-centered">
+                <video poster="" id="" autoplay controls muted loop width="100%" playbackRate=2.0 style="border-radius: 5px;">
+                    <source src="media/videos/rss2021/real.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </section>
+
+<section class="section" id="BibTeX">
+    <div class="container is-max-widescreen content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>
+      @inproceedings{deng2020mqa, 
+        author    = {Deng, Yuhong and Guo, Di and Guo, Xiaofeng and Zhang, Naifu and Liu, Huaping and Sun, Fuchun}, 
+        title     = {MQA: Answering the Question via Robotic Manipulation}, 
+        booktitle = {Proceedings of Robotics: Science and Systems}, 
+        year      = {2021},
+      }  
+    </code></pre>
+    </div>
+</section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column">
+                    <div class="content has-text-centered">
+                        <p>
+                            Website template borrowed from <a
+                                href="https://github.com/nerfies/nerfies.github.io">NeRFies</a>
+                                and <a href="https://github.com/cliport/cliport.github.io">CLIPort</a>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

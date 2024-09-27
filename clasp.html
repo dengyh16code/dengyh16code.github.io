@@ -102,16 +102,16 @@
         </div>
     </section>
 
-    <!-- <section class="section" style="padding: 0">
-        <div class="container is-max-desktop"> -->
+    <section class="section" style="padding: 0">
+        <div class="container is-max-desktop">
             <!-- Abstract. -->
-            <!-- <div class="columns is-centered has-text-centered">
+            <div class="columns is-centered has-text-centered">
                 <video poster="" id="" autoplay controls muted loop width="100%" playbackRate=2.0 style="border-radius: 5px;">
-                    <source src="media/videos/icra2024/summary.mp4" type="video/mp4">
+                    <source src="media/videos/icra2025/summary.mp4" type="video/mp4">
                 </video>
             </div>
         </div>
-    </section> -->
+    </section>
 
     <section class="section">
         <div class="container is-max-desktop">
@@ -121,8 +121,7 @@
                     <h2 class="title is-3">Abstract</h2>
                     <div class="content has-text-justified">
                         <p style="font-size: 125%">
-                            Clothes manipulation is a critical skill for household robots. Recent advancements have been made in task-specific clothes manipulation, such as folding, flattening, and hanging. However, due to complexity of clothes geometries and their deformability, creating general-purpose robot system that can manipulate a diverse range of clothes in many different ways remain challenging. Consider that clothes have manually designed structure, we use semantic keypoints as the abstraction to capture the geometry of clothes and outline where to manipulate. Based on semantic keypoints representation, we propose a hierarchical learning framework using the large language model, where semantic keypoints provide cues for both high-level task planning and low-level action generation. Extensive simulation experiments show that the proposed method outperforms baseline methods in both seen and unseen tasks across various clothes manipulation tasks. Real-world experiments show that the proposed method can be directly transformed to real world and applied to a wide variety of clothes. 
-                        </p>
+                            Clothes manipulation is a critical skill for household robots. Recent advancements have been made in task-specific clothes manipulation, such as folding, flattening, and hanging. However, due to clothes' complex geometries and deformability, creating a general-purpose robot system that can manipulate a diverse range of clothes in many ways remains challenging. Since clothes are typically designed with specific structures, we propose identifying these specific features like ``left sleeve'' as semantic keypoints. Semantic keypoints can provide semantic cues for task planning and geometric cues for low-level action generation. With this insight, we develop a hierarchical learning framework using the large language model (LLM) for general-purpose CLothes mAnipulation with Semantic keyPoints (CLASP). Extensive simulation experiments show that CLASP outperforms baseline methods on both seen and unseen tasks across various clothes manipulation tasks. Real-world experiments show that CLASP can be directly deployed in the real world and applied to a wide variety of clothes.
                     </div>
                 </div>
             </div>

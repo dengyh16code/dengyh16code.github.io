@@ -1,278 +1,313 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>General-purpose Clothes Manipulation with Semantic Keypoints</title>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="CLASP: General-purpose Clothes Manipulation with Semantic Keypoints">
+  <meta name="keywords" content="Deformable Object Manipulation, State Representation, Foundation Model">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ClASP</title>
 
-    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4Y34PZ3XBE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-    <link rel="stylesheet" href="./static/css/bulma.min.css">
-    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
-    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
-    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-    <link rel="stylesheet" href="./static/css/academicons.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-    <link rel="stylesheet" href="./static/css/index.css">
+    gtag('config', 'G-4Y34PZ3XBE');
+  </script>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script defer src="./static/js/fontawesome.all.min.js"></script>
-    <script src="./static/js/bulma-carousel.min.js"></script>
-    <script src="./static/js/bulma-slider.min.js"></script>
-    <script src="./static/js/index.js"></script>
+  <script>
+    function updateSingleVideo() {
+      var task = document.getElementById("single-menu-tasks").value;
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      console.log("single", task)
+
+      var video = document.getElementById("single-task-result-video");
+      video.src = "media/videos/icra2025/" + task + ".mp4";
+      video.playbackRate = 2.0;
+      video.play();
+    }
+
+  </script>
+
+
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
 </head>
-
 <body>
 
 
-    <section class="hero">
-        <div class="hero-body">
-            <div class="container is-max-desktop">
-                <div class="columns is-centered">
-                    <div class="column has-text-centered">
-                        <h1 class="title is-1 publication-title">General-purpose Clothes Manipulation with Semantic Keypoints</h1>
-                        <!-- <h3 class="title is-4 conference-authors"><a target="_blank" href="https://2024.ieee-icra.org/">ICRA 2024</a></h3> -->
-                        <div class="is-size-5 publication-authors">
-                            <span class="author-block">
-                              <a target="_blank" href="https://www.yuhongdeng.com/">Yuhong Deng</a>,</span>
-                            <span class="author-block">
-                              <a target="_blank" href="https://www.comp.nus.edu.sg/~dyhsu/">David Hsu</a>,</span>
-                          </div>
-
-                        <div class="is-size-5 publication-authors">
-                            <span class="author-block">National University of Singapore; </span>
-                        </div>
-                        <div class="is-size-5 publication-authors">
-
-                        </div>
-                        <!-- <div class="is-size-5 publication-authors">
-                        <span class="author-block">Work done during the first author's internship at NVIDIA</span>
-                        </div> -->
-
-                        <!-- <div class="is-size-5 publication-authors">
-                        <span class="author-block"><sup>&dagger;</sup>Equal Contribution</span>
-                        <span class="author-block"><sup>&#8225;</sup>Equal Advising </span>
-                    </div> -->
-
-                        <div class="column has-text-centered">
-                            <div class="publication-links">
-
-                                 <!-- Paper Link. -->
-                                <!-- <span class="link-block">
-                                    <a target="_blank" href="media/icra2024.pdf"
-                                        class="external-link button is-normal is-rounded is-dark">
-                                        <span class="icon">
-                                            <i class="fas fa-file-pdf"></i>
-                                        </span>
-                                        <span>PDF</span>
-                                    </a>
-                                </span> -->
- 
-                                <!-- Paper Link. -->
-                                <span class="link-block">
-                                    <a target="_blank" href="https://arxiv.org/abs/2408.08160"
-                                        class="external-link button is-normal is-rounded is-dark">
-                                        <span class="icon">
-                                            <i class="ai ai-arxiv"></i>
-                                        </span>
-                                        <span>arXiv</span>
-                                    </a>
-                                </span>
-
-                                <!-- Code Link. -->   
-                                <!-- <span class="link-block">
-                                    <a target="_blank" href="https://github.com/dengyh16code/language_deformable"
-                                        class="external-link button is-normal is-rounded is-dark">
-                                        <span class="icon">
-                                            <i class="fab fa-github"></i>
-                                        </span>
-                                        <span>Code (coming soon)</span>
-                                    </a>
-                                </span> -->
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">General-purpose Clothes Manipulation with Semantic Keypoints</h1>
+          <h3 class="title is-4 conference-authors"><a target="_blank" href="https://2025.ieee-icra.org/">ICRA 2025</a></h3>
+          <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a target="_blank" href="https://www.yuhongdeng.com/">Yuhong Deng</a>,</span>
+              <span class="author-block">
+                <a target="_blank" href="https://www.comp.nus.edu.sg/~dyhsu/">David Hsu</a>,</span>
             </div>
-        </div>
-    </section>
 
-    <section class="section" style="padding: 0">
-        <div class="container is-max-desktop">
-            <!-- Abstract. -->
-            <div class="columns is-centered has-text-centered">
-                <video poster="" id="" autoplay controls muted loop width="100%" playbackRate=2.0 style="border-radius: 5px;">
-                    <source src="media/videos/icra2025/summary.mp4" type="video/mp4">
-                </video>
-            </div>
-        </div>
-    </section>
+          <div class="is-size-5 publication-authors">
+              <span class="author-block">National University of Singapore; </span>
+          </div>
+          <div class="is-size-5 publication-authors">
 
-    <section class="section">
-        <div class="container is-max-desktop">
-            <!-- Abstract. -->
-            <div class="columns is-centered has-text-centered">
-                <div class="column">
-                    <h2 class="title is-3">Abstract</h2>
-                    <div class="content has-text-justified">
-                        <p style="font-size: 125%">
-                            Clothes manipulation is a critical skill for household robots. Recent advancements have been made in task-specific clothes manipulation, such as folding, flattening, and hanging. However, due to clothes' complex geometries and deformability, creating a general-purpose robot system that can manipulate a diverse range of clothes in many ways remains challenging. Since clothes are typically designed with specific structures, we propose identifying these specific features like ``left sleeve'' as semantic keypoints. Semantic keypoints can provide semantic cues for task planning and geometric cues for low-level action generation. With this insight, we develop a hierarchical learning framework using the large language model (LLM) for general-purpose CLothes mAnipulation with Semantic keyPoints (CLASP). Extensive simulation experiments show that CLASP outperforms baseline methods on both seen and unseen tasks across various clothes manipulation tasks. Real-world experiments show that CLASP can be directly deployed in the real world and applied to a wide variety of clothes.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+          </div>
 
-    <section class="section">
-        <div class="container is-max-widescreen">
-            <div class="rows">
-                <div class="rows is-centered ">
-                    <div class="row is-full-width">
-                        <h2 class="title is-3"><span class="dvima">CLASP</span></h2>
-                        <p style="font-size: 125%">
-                            We propose a general-purpose CLothes mAnipulation method with Semantic keyPoints (CLASP). Given Depth observation and free-form language instruction, ClASP first detect semantic keypoints as state abstraction. The semantic description of detected semantic keypoints and the instruction are fed into a large language model to generate a series of sub-task. For each sub-task, a low-level action primitives library is used to execute the action based on the semantic keypoint positions. The entire pipeline enables the robot to learn transferable language and visual concepts across clothes manipulation tasks, which make CLASP generalize to a wide variety of clothes categories and tasks.
-                        </p>
-                    <img src="media/images/icra2025/overview.png" class="interpolation-image" alt="Interpolate start reference image." />
-                    <br/>
-                    </div>
-                </div>
-            </div>
-            <br>
-            
-            <!-- <div class="columns">
-                <div class="column">
-                    <img src="media/images/icra2025/overview.png" class="interpolation-image" alt="" />
-                    <br>
-                </div>
-                <div class="column">
-                    <img src="media/images/icra2024/model.png" class="interpolation-image" alt="" />
-                    <br>
-                </div>
-            </div> -->
-            
-         
-        </div>
-    </section>
+          <div class="column has-text-centered">
+              <div class="publication-links">
 
-    <section class="section">
-        <div class="container is-max-widescreen">
-            <div class="rows">
-                <div class="rows is-centered ">
-                    <div class="row is-full-width">
-                        <h2 class="title is-3"><span class="dvima">Videos of real-world experiments</span></h2>
-                        <p style="font-size: 125%">
-                            We evaluate the performance of our framework on a dual-arm robot manipulation system. Our method can be directly transformed to reality and applied to various clothes and task categories.
-                        </p>
-                    <img src="media/images/icra2025/real_experiment.png" class="interpolation-image" alt="Interpolate start reference image." />
-                    <br/>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- <div class="hero is-light is-small"> -->
-        <div>
+                    <!-- Paper Link. -->
+                  <!-- <span class="link-block">
+                      <a target="_blank" href="media/icra2024.pdf"
+                          class="external-link button is-normal is-rounded is-dark">
+                          <span class="icon">
+                              <i class="fas fa-file-pdf"></i>
+                          </span>
+                          <span>PDF</span>
+                      </a>
+                  </span> -->
 
-            <div class="hero-body">
-                <div class="container">
-                    <div id="results-carousel" class="carousel results-carousel">
-                        <div class="item">
-                            <video poster="" id="" autoplay controls muted loop height="100%" playbackRate=2.0>
-                                <source src="media/videos/icra2025/task1.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="item">
-                            <video poster="" id="" autoplay controls muted loop height="100%" playbackRate=2.0>
-                                <source src="media/videos/icra2025/task2.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="item">
-                            <video poster="" id="" autoplay controls muted loop height="100%" playbackRate=2.0>
-                                <source src="media/videos/icra2025/task3.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="item">
-                            <video poster="" id="" autoplay controls muted loop height="100%" playbackRate=2.0>
-                                <source src="media/videos/icra2025/task4.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="item">
-                            <video poster="" id="" autoplay controls muted loop height="100%" playbackRate=2.0>
-                                <source src="media/videos/icra2025/task5.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="item">
-                            <video poster="" id="" autoplay controls muted loop height="100%" playbackRate=2.0>
-                                <source src="media/videos/icra2025/task6.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-                </div>
-                <br>
-                <!-- <div class="container">
-                    <div id="results-carousel" class="carousel results-carousel">
-                        <div class="item">
-                            <video poster="" id="" autoplay controls muted loop height="100%" playbackRate=2.0>
-                                <source src="media/videos/icra2025/placetowel_small.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="item">
-                            <video poster="" id="" autoplay controls muted loop height="100%" playbackRate=2.0>
-                                <source src="media/videos/icra2025/flattentrousers_small.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="item">
-                            <video poster="" id="" autoplay controls muted loop height="100%" playbackRate=2.0>
-                                <source src="media/videos/icra2025/hangskirt_small.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="item">
-                            <video poster="" id="" autoplay controls muted loop height="100%" playbackRate=2.0>
-                                <source src="media/videos/icra2024/tri2_3x.mp4" type="video/mp4">
-                            </video>
-                        </div> 
-                        <div class="item">
-                            <video poster="" id="" autoplay controls muted loop height="100%" playbackRate=2.0>
-                                <source src="media/videos/icra2024/half2_3x.mp4" type="video/mp4">
-                            </video> 
-                        </div>
-                    </div>
-                </div> -->
-            </div>
-        </div>
-    </section>
+                  <!-- Paper Link. -->
+                  <span class="link-block">
+                      <a target="_blank" href="https://arxiv.org/abs/2408.08160"
+                          class="external-link button is-normal is-rounded is-dark">
+                          <span class="icon">
+                              <i class="ai ai-arxiv"></i>
+                          </span>
+                          <span>PDF</span>
+                      </a>
+                  </span>
 
-<section class="section" id="BibTeX">
-    <div class="container is-max-widescreen content">
-      <h2 class="title">BibTeX</h2>
-      <pre><code>@article{deng2024clasp,
-    title     = {General-purpose Clothes Manipulation with Semantic Keypoints},
-    author    = {Yuhong Deng and David Hsu},
-    journal = {arXiv preprint arXiv: Arxiv-2408.08160},
-    year      = {2024},
-  }</code></pre>
+                  <!-- Code Link. -->   
+                  <span class="link-block">
+                      <a target="_blank"
+                          class="external-link button is-normal is-rounded is-dark">
+                          <span class="icon">
+                              <i class="fab fa-github"></i>
+                          </span>
+                          <span>Code (coming soon)</span>
+                      </a>
+                  </span>
+              </div>
+
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </section>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="columns is-centered">
-                <div class="column">
-                    <div class="content has-text-centered">
-                        <p>
-                            Website template borrowed from <a
-                                href="https://github.com/nerfies/nerfies.github.io">NeRFies</a>
-                                and <a href="https://github.com/cliport/cliport.github.io">CLIPort</a>.
-                        </p>
-                    </div>
-                </div>
-            </div>
+<section class="hero teaser">
+  <div class="container is-fullhd">
+    <div class="hero-body">
+      <video id="teaser" autoplay muted loop height="100%">
+        <source src="media/videos/icra2025/teaser.mp4"
+                type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+      </br>
+        <span>CLASP</span> is an general-purpose clothes manipulation method across diverse clothes categories and manipulation tasks.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Clothes manipulation, such as folding, flattening, and hanging, is prevalent in our daily life and a critical skill for home service robots.
+            Despite recent advances, existing methods often focus narrowly on a specific task or a specific type of clothes.
+          </p>
+          <p>
+            This work introduces <em>CLothes mAnipulation with Semantic keyPoints</em> (CLASP), which aims at general-purpose clothes manipulation over 
+            diverse clothes types—T-shirts, sweaters, shorts, skirts, long dresses, etc.—as well as multiple tasks: folding, flattening, hanging, and more.
+            Our insight in tackling the challenge of generalization is the concept of <em>semantic keypoints</em>, a general spatial-semantic representation that encodes the structural features of clothes, such as “left sleeve” and “right hem.”
+            Semantic keypoints are salient for both perception and action, effectively captured in the commonsense knowledge of foundation models, and relatively easy to extract from observations.
+          </p>
+          <p>
+            CLASP integrates semantic keypoints with foundation models—both large language models (LLMs) and vision-language models (VLMs)—to achieve general-purpose clothes manipulation.
+            In both simulation and real-robot experiments, CLASP demonstrates strong performance and generalization capabilities compared to baseline methods.
+          </p>
         </div>
-    </footer>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+  </div>
+
+</section>
+
+ <!-- Paper video. -->
+<section class="hero teaser">
+  <div class="container is-fullhd has-text-centered">
+    <div class="hero-body">
+        <h2 class="title is-3">Video</h2>
+        <video id="video_clasp" controls autoplay muted loop height="100%">
+          <source src="media/videos/icra2025/clasp.mp4"
+                  type="video/mp4">
+        </video>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-widescreen">
+    <div class="rows">
+
+    <!-- Animation. -->
+    <div class="rows is-centered ">
+      <div class="row is-full-width">
+        <h2 class="title is-3"><span>Semantic Keypoints</span></h2>
+
+        <!-- Interpolating. -->
+
+        <div class="content has-text-justified">
+          <p>
+          Inspired by the way humans manipulate clothes, we introduce semantic keypoints as a general spatial-semantic representation of clothes. These keypoints carry explicit semantic meaning, can be described using natural language, 
+          and provide a sparse yet succinct representation. As a result, they are easy to extract from visual observations, generalize well across different clothes instances, and effectively define affordances for manipulation.
+          </p>
+        </div>
+        <img src="media/images/icra2025/semantic_kp.png" class="interpolation-image" 
+         alt="Interpolate start reference image." />
+        <br/>
+        <br/>
+        <!--/ Interpolating. -->
+
+        <!-- Re-rendering. -->
+        <h3 class="title is-3">CLASP</h3>
+        <div class="content has-text-justified">
+          <p>
+          CLASP overview. Given an RGB-D observation, CLASP extracts semantic keypoints as the state. These keypoints, along with the RGB image and task instruction, are fed to a VLM to generate a sub-task sequence. Once verified, the sub-tasks are executed. After each sub-task, CLASP updates the observation and decides whether to replan. This loop continues until the task is complete.
+          </p>
+        </div>
+        <img src="media/images/icra2025/overview.png" class="interpolation-image" 
+         alt="Interpolate start reference image." />
+        <br/>
+        <br/>
+        <br/>
+
+        <!--/ Re-rendering. -->
+
+        <h2 class="title is-3">Results</h2>
+
+        <div class="columns">
+          <div class="column has-text-centered">
+            <div class="select is-large">     
+              <select id="single-menu-tasks" onchange="updateSingleVideo()">
+              <option value="tshirtfold" selected="selected">Fold the T-shirt for storage</option>
+              <option value="dressflatten">Flatten the long dress</option>
+              <option value="pantsfold">Fold the pants in half</option>
+              <option value="skirthang">Hang the skirt on the rack</option>
+              <option value="tshirtplace">Place the T-shirt in the box</option>
+              <option value="shortsflatten">Flatten the crumpled shorts</option>
+              <option value="tophang">Hang the top on the rack</option>
+              <option value="sweaterfold">Fold the sweater</option>
+              <option value="pantsplace">Place the pants in the box</option>
+              <option value="vestfold">Fold the vest in half</option>
+              <option value="tshirtflatten">Flatten the crumpled T-shirt</option>
+              <option value="tshirthang">Hang the T-shirt on the hanger</option>
+              <option value="pantsfold">Fold the pants in half</option>
+              <option value="skirtplace">Place the skirt in the box</option>
+              <option value="shortshang">Hang the shorts on the hanger</option>
+              </select>
+            </div>
+
+            <br/>
+            <br/>
+
+            <video id="single-task-result-video"
+                   controls
+                   muted
+                   autoplay
+                   loop
+                   width="100%">
+              <source src="media/videos/icra2025/tshirtfold.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+
+          
+        </div>
+
+        <img src="media/images/icra2025/experiments.png" class="interpolation-image" 
+         alt="Interpolate start reference image."/>
+        <br/>
+        <br/>
+        <br/>
+
+        <h3 class="title is-4">Semantic Keypoints Extraction</h3>
+        <div class="content has-text-justified">
+          <p>
+            Our method can achieve open-category semantic keypoint extraction under irregular deformation and occlusion.
+          </p>
+        </div>
+        <br/>
+        <img src="media/images/icra2025/keypoint_results.png" class="interpolation-image" 
+         alt="Interpolate start reference image."/>
+        <br/>
+
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-widescreen content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@inproceedings{deng2025clasp,
+  title     = {General-purpose Clothes Manipulation with Semantic Keypoints},
+  author    = {Yuhong Deng and David Hsu},
+  booktitle = {IEEE International Conference on Robotics and Automation (ICRA)},
+  year      = {2025},
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column">
+        <div class="content has-text-centered">
+          <p>
+            Website template borrowed from <a href="https://github.com/nerfies/nerfies.github.io">NeRFies</a> made by the amazing <a href="https://keunhong.com/">Keunhong Park</a>. 
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
 
 </body>
 </html>

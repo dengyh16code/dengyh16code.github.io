@@ -38,22 +38,26 @@
     <div id="main">
       <div id="intro">
         <div id="intro-text">
-          <h1>Yuhong Deng (邓宇鸿) </h1>
-          <h2> <a href="#" id="toggleLink">How to pronounce?</a> </h2>
+          <h1>Yuhong Deng</h1>
+          <br>
+          <!-- <h2> <a href="#" id="toggleLink">How to pronounce?</a> </h2> -->
           
-          <audio id="myAudioPlayer" style="display:none;" controls>
+          <!-- <audio id="myAudioPlayer" style="display:none;" controls>
             <source src="media/pronounce.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
-          </audio>
+          </audio> -->
           <p>
             I am a Ph.D. student in Computer Science at <a href="https://www.comp.nus.edu.sg/cs/"> National University of Singapore (NUS)</a>, 
             advised by <a href="https://www.comp.nus.edu.sg/~dyhsu/"> Prof. David Hsu</a>. My research focuses on robotic perception, learning and planning, with applications mainly on manipulation tasks for home service robots.
             <br>
             <br>
-            Previously, I received master's degree and bachelor's degree at <a href="https://www.tsinghua.edu.cn/en/">Tsinghua University</a> in 2023 and 2020, respectively.
+            Previously, I received my master's and bachelor's degrees from <a href="https://www.tsinghua.edu.cn/en/">Tsinghua University</a> 
+            <br>
+            in 2023 and 2020, respectively.
             <br>
             <br>
-            Feel free to reach out for collaboration and discussion of research ideas.
+            <!-- Feel free to reach out for collaboration and discussion of research ideas. -->
+            <span style="font-weight: bold;">Seeking for Research Scientist Intern Opportunities starting after Mar. 2026.</span>
             <br>
             Email: yuhongdeng [AT] comp.nus.edu.sg / dengyh_work [AT] outlook.com
             <br>
@@ -61,8 +65,6 @@
             <a href="https://github.com/dengyh16code">Github</a>&nbsp;&nbsp;&nbsp;&nbsp;
             <a href="https://scholar.google.com/citations?user=KdN7CjEAAAAJ&hl=en">Google Scholar</a>&nbsp;&nbsp;&nbsp;&nbsp;
             <a href="https://www.linkedin.com/in/yuhong-deng">LinkedIn</a>&nbsp;&nbsp;&nbsp;&nbsp;
-            <!-- <a href="https://dengyh16code.github.io/CV_YuhongDeng.pdf">Resume</a> (usually out-dated)&nbsp;&nbsp;&nbsp;&nbsp; -->
-            <!-- <a href="https://bigfive-test.com/result/656b61265b905d00082551f2">Personality</a> -->
           </p>
         </div>
         <div id="intro-image">
@@ -72,10 +74,16 @@
 
       <div id="filters" class="button-group">
         <!-- <button class="button" data-filter="*">Show All</button> -->
-        <button class="button is-checked" data-filter=".publication">Research</button>
+        <button class="button is-checked" data-filter=".publication" id="research-btn">Research</button>
         <button class="button" data-filter=".highlight">Honors</button>
         <button class="button" data-filter=".talk">News</button>
         <button class="button" data-filter=".misc">Services</button>
+      </div>
+
+      <!-- new sub-buttons -->
+      <div id="research-filters" class="button-group" style="margin: 10px 0; display: none;">
+        <button id="show-selected-btn" class="button is-checked">Show selected</button>
+        <button id="show-all-btn" class="button">Show all by date</button>
       </div>
 
       <div class="grid">
@@ -83,7 +91,52 @@
         <!-- Publications -->
 
         <div class="list-item publication" data-category="publication">
-          <a class="thumbnail"><img src="media/images/main_page/clasp.png" alt="" /></a>
+          <a class="thumbnail"><img src="media/images/main_page/iros2025.png" alt="" /></a>
+          <div class="project-description">
+            <h3>Learning Generalizable Language-Conditioned Cloth Manipulation from Long Demonstrations</h3>
+            <p>
+              <i>Hanyi Zhao, Jinxuan Zhu, Zihao Yan, Yichen Li, <b>Yuhong Deng</b>, Xueqian Wang</i><br>
+              <i>IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS 2025)</i><br>
+              <a href="https://arxiv.org/abs/2503.04557" target="_blank">PDF</a>
+              &nbsp;|&nbsp;
+              <a href="https://sites.google.com/view/gen-cloth" target="_blank">Webpage</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="list-item publication" data-category="publication">
+          <a class="thumbnail"><img src="media/images/main_page/mimicfunc.png" alt="" /></a>
+          <div class="project-description">
+            <h3>MimicFunc: Imitating Tool Manipulation from a Single Human Video via Functional Correspondence</h3>
+            <p>
+              <i>Chao Tang, Anxing Xiao, <b>Yuhong Deng</b>, Tianrun Hu, Wenlong Dong, Hanbo Zhang, David Hsu, Hong Zhang</i><br>
+              <i>Conference on Robot Learning (CoRL 2025)</i><br>
+              <a href="https://www.arxiv.org/abs/2508.13534" target="_blank">PDF</a>  
+              &nbsp;&nbsp;|&nbsp;&nbsp;
+              <a href="https://sites.google.com/view/mimicfunc" target="_blank">Webpage</a>
+              &nbsp;&nbsp;|&nbsp;&nbsp;
+              <a href="https://github.com/mkt1412/FUNCTO_public" target="_blank">Code</a>    
+            </p>
+          </div>
+        </div>
+
+
+          <div class="list-item publication" data-category="publication">
+          <a class="thumbnail"><img src="media/images/main_page/gson.jpg" alt="" /></a>
+          <div class="project-description">
+            <h3>GSON: A Group-based Social Navigation Framework with Large Multimodal Model</h3>
+            <p>
+              <i>Shangyi Luo, Peng Sun, Ji Zhu, <b>Yuhong Deng</b>, Cunjun Yu, Anxing Xiao, Xueqian Wang</i><br>
+              <i>IEEE Robotics and Automation Letters (RAL 2025)</i><br>
+              <a href="https://arxiv.org/abs/2409.18084" target="_blank">PDF</a>
+              &nbsp;&nbsp;|&nbsp;&nbsp;
+              <a href="https://github.com/lsylsy0516/GSON" target="_blank">Code</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="list-item publication selected-publication" data-category="publication selected-publication">
+          <a class="thumbnail"><img src="media/gifs/clasp.gif" alt="" /></a>
           <div class="project-description">
             <h3>General-purpose Clothes Manipulation with Semantic Keypoints</h3>
             <p>
@@ -99,8 +152,8 @@
           </div>
         </div>
       
-        <div class="list-item publication" data-category="publication">
-          <a class="thumbnail"><img src="media/images/main_page/icra2024.png" alt="" /></a>
+        <div class="list-item publication selected-publication" data-category="publication selected-publication">
+          <a class="thumbnail"><img src="media/gifs/language_def.gif" alt="" /></a>
           <div class="project-description">
             <h3>Learning Language-Conditioned Deformable Object Manipulation with Graph Dynamics</h3>
             <p>
@@ -116,8 +169,8 @@
         </div>
 
 
-        <div class="list-item publication" data-category="publication">
-          <a class="thumbnail"><img src="media/images/main_page/ral.jpeg" alt="" /></a>
+        <div class="list-item publication selected-publication" data-category="publication selected-publication">
+          <a class="thumbnail"><img src="media/gifs/foldsformer.gif" alt="" /></a>
           <div class="project-description">
             <h3>Foldsformer: Learning Sequential Multi-Step Cloth Manipulation With Space-Time Attention</h3>
             <p>
@@ -135,12 +188,12 @@
         </div>
 
 
-        <div class="list-item publication" data-category="publication">
-          <a class="thumbnail"><img src="media/images/main_page/iros2022.png" alt="" /></a>
+        <div class="list-item publication selected-publication" data-category="publication selected-publication">
+          <a class="thumbnail"><img src="media/gifs/rope.gif" alt="" /></a>
           <div class="project-description">
             <h3>Deep Reinforcement Learning Based on Local GNN for Goal-conditioned Deformable Object Rearranging</h3>
             <p>
-              <i><b>Yuhong Deng</b>, Chongkun Xia, Xueqian Wang, and Lipeng Chen</i><br>
+              <i><b>Yuhong Deng</b>, Chongkun Xia, Xueqian Wang, Lipeng Chen</i><br>
               <i>IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS 2022)</i><br>
               <a href="https://arxiv.org/pdf/2302.10446.pdf" target="_blank">PDF</a>
               &nbsp;|&nbsp;
@@ -152,21 +205,21 @@
           </div>
         </div>
 
-        <!-- <div class="list-item publication" data-category="publication">
+        <div class="list-item publication" data-category="publication">
           <a class="thumbnail"><img src="media/images/main_page/smc2022.png" alt="" /></a>
           <div class="project-description">
             <h3>Graph-Transporter: A Graph-based Learning Method for Goal-conditioned Deformable Object Rearranging Task</h3>
             <p>
-              <i><b>Yuhong Deng</b>, Chongkun Xia, Xueqian Wang, and Lipeng Chen</i><br>     
+              <i><b>Yuhong Deng</b>, Chongkun Xia, Xueqian Wang, Lipeng Chen</i><br>     
               <i>International Conference on Systems, Man, and Cybernetics (IEEE SMC 2022)</i><br>
               <a href="https://arxiv.org/pdf/2302.10445.pdf" target="_blank">PDF</a>&nbsp;|&nbsp;
               <a href="https://ieeexplore.ieee.org/document/9945180" target="_blank">Source</a><br>
             </p>
           </div>
-        </div> -->
+        </div>
 
-        <div class="list-item publication" data-category="publication">
-          <a class="thumbnail"><img src="media/images/main_page/rss2021.png" alt="" /></a> 
+        <div class="list-item publication selected-publication" data-category="publication selected-publication">
+          <a class="thumbnail"><img src="media/gifs/mqa.gif" alt="" /></a> 
           <div class="project-description">
             <h3>MQA: Answering the Question via Robotic Manipulation</h3>
             <p>
@@ -197,12 +250,12 @@
           </div>
         </div>
 
-        <div class="list-item publication" data-category="publication">
-          <a class="thumbnail"><img src="media/images/main_page/iros2019.png" alt="" /></a>
+        <div class="list-item publication selected-publication" data-category="publication selected-publication">
+          <a class="thumbnail"><img src="media/gifs/push_grasp.gif" alt="" /></a>
           <div class="project-description">
             <h3>Deep Reinforcement Learning for Robotic Pushing and Picking in Cluttered Environment</h3>
             <p>
-              <i><b>Yuhong Deng</b>, Xiaofeng Guo, Yixuan Wei, Kai Lu, Bin Fang, Di Guo, Huaping Liu, and Fuchun Sun</i><br>
+              <i><b>Yuhong Deng</b>, Xiaofeng Guo, Yixuan Wei, Kai Lu, Bin Fang, Di Guo, Huaping Liu, Fuchun Sun</i><br>
               <i>IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS 2019)</i><br>
               <a href="https://arxiv.org/pdf/2302.10717.pdf" target="_blank">PDF</a>
               &nbsp;&nbsp;|&nbsp;&nbsp;
@@ -325,18 +378,50 @@
           weight: function( itemElem ) {
             var weight = $( itemElem ).find('.weight').text();
             return parseFloat( weight.replace( /[\(\)]/g, '') );
-          }
+        $('#show-selected-btn').addClass('is-checked');
+        $('#show-all-btn').removeClass('is-checked');
+        $('#show-selected-btn').css('background-color', 'black');
+        $('#show-selected-btn').css('color', 'white');
+        $('#research-filters').show();
+        $('#research-btn').addClass('is-checked');
+        $grid.isotope({ filter: '.selected-publication' });
+        }
         }
       });
 
-      // Bind filter button click.
-      $('#filters').on( 'click', 'button', function() {
-        var filterValue = $( this ).attr('data-filter');
-        localStorage.setItem('filterValue', filterValue);
-        $grid.isotope({ filter: filterValue });
+      // Toggle sub-buttons visibility
+      $('#research-btn').on('click', function() {
+        console.log('Research button clicked');
+        $('#research-filters').toggle();
+        $grid.isotope({ filter: '.selected-publication' });
+        $('#show-selected-btn').addClass('is-checked');
+        $('#show-all-btn').removeClass('is-checked');
       });
 
-      // Change is-checked class on buttons.
+      // Bind sub-button click
+      $('#show-selected-btn').on('click', function() {
+        // Logic to show selected publications
+        $grid.isotope({ filter: '.selected-publication' });
+      });
+
+      $('#show-all-btn').on('click', function() {
+        // Logic to show all publications sorted by date
+        $grid.isotope({ filter: '.publication' });
+      });
+
+      $('#filters').on('click', 'button', function() {
+        var filterValue = $(this).attr('data-filter');
+        if (filterValue === '.publication') {
+          $('#research-filters').show();
+        } else {
+          $('#research-filters').hide();
+        }
+              var filterValue = $( this ).attr('data-filter');
+              localStorage.setItem('filterValue', filterValue);
+              $grid.isotope({ filter: filterValue });
+            });
+
+       // Change is-checked class on buttons.
       $('.button-group').each( function( i, buttonGroup ) {
         var $buttonGroup = $( buttonGroup );
         $buttonGroup.on( 'click', 'button', function() {
@@ -346,27 +431,27 @@
       });
 
       function update_isotope() {
-        // Retrieve cached button click.
-        var defaultFilterValue = localStorage.getItem('filterValue');
-        if (defaultFilterValue == null) {
-          defaultFilterValue = ".publication"
-        }
-        $grid.isotope({ filter: defaultFilterValue });
-        var buttons = document.getElementsByClassName("button");
-        for (var currButton of buttons) {
-          if (currButton.getAttribute('data-filter') == defaultFilterValue) {
-            currButton.classList.add('is-checked');
-          } else {
-            currButton.classList.remove('is-checked');
-          }
-        }
+        const defaultFilter = '.selected-publication';
+        const defaultMainFilter = '.publication';
+
+        // Set Research button as active
+        $('#research-btn').addClass('is-checked');
+        // Show research filters
+        $('#research-filters').show();
+
+        // Set sub-filter
+        $('#show-selected-btn').addClass('is-checked');
+        $('#show-all-btn').removeClass('is-checked');
+
+        // Apply filter to show selected publications only
+        $grid.isotope({ filter: defaultFilter });
       }
 
-      document.getElementById("toggleLink").addEventListener("click", function(event) {
-      event.preventDefault(); // Prevent the default anchor link behavior
-      var audioPlayer = document.getElementById("myAudioPlayer");
-      audioPlayer.style.display = audioPlayer.style.display === "none" ? "block" : "none";
-      });
+      // document.getElementById("toggleLink").addEventListener("click", function(event) {
+      // event.preventDefault(); // Prevent the default anchor link behavior
+      // var audioPlayer = document.getElementById("myAudioPlayer");
+      // audioPlayer.style.display = audioPlayer.style.display === "none" ? "block" : "none";
+      // });
 
 
 

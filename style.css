@@ -148,6 +148,12 @@ h2 {
   padding: 0;
 }
 
+#research-filters .button {
+  font-size: 1.2em;
+  margin-top: 0.2em;
+  margin-right: 0.5em;
+}
+
 .button:hover {
   color: #150c21;
 }

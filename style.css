@@ -94,21 +94,21 @@ h1 {
 }
 
 #intro-text {
-  width: 40em;
+  width: 30em;
   float: left;
 }
 
 #intro-image {
   margin: 2em 0 0 2em;
-  width: 12em;
-  height: 12em;
+  width: 15em;
+  height: 15em;
   float: left;
   overflow: hidden;
   border-radius: 1em;
 }
 
 #intro-image img {
-  width: 12em;
+  width: 15em;
 }
 
 /**************************************************/

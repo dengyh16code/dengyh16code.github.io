@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Robot arm">
+  <rect width="64" height="64" rx="13" fill="#2d6aa0"/>
+  <g fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round">
+    <!-- base, column, forearm -->
+    <g stroke-width="7">
+      <path d="M12 47h26"/>
+      <path d="M25 47V30l20-9"/>
+    </g>
+    <!-- two-finger gripper, drawn as an open bracket -->
+    <g stroke-width="5">
+      <path d="M45 15v12"/>
+      <path d="M45 15h8"/>
+      <path d="M45 27h8"/>
+    </g>
+  </g>
+</svg>

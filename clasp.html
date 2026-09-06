@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="description"
@@ -22,12 +22,10 @@
     function updateSingleVideo() {
       var task = document.getElementById("single-menu-tasks").value;
 
-      console.log("single", task)
-
       var video = document.getElementById("single-task-result-video");
       video.src = "media/videos/icra2025/" + task + ".mp4";
       video.playbackRate = 2.0;
-      video.play();
+      video.play().catch(function () { /* Controls remain available if playback is blocked. */ });
     }
 
   </script>
@@ -40,7 +38,6 @@
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
   <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
   <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
@@ -128,12 +125,12 @@
 <section class="hero teaser">
   <div class="container is-fullhd">
     <div class="hero-body">
-      <video id="teaser" autoplay muted loop height="100%">
+      <video id="teaser" autoplay muted loop height="100%" preload="metadata" playsinline>
         <source src="media/videos/icra2025/teaser.mp4"
                 type="video/mp4">
       </video>
       <h2 class="subtitle has-text-centered">
-      </br>
+      <br>
         <span>CLASP</span> is an general-purpose clothes manipulation method across diverse clothes categories and manipulation tasks.
       </h2>
     </div>
@@ -176,7 +173,7 @@
   <div class="container is-fullhd has-text-centered">
     <div class="hero-body">
         <h2 class="title is-3">Video</h2>
-        <video id="video_clasp" controls autoplay muted loop height="100%">
+        <video id="video_clasp" controls muted loop height="100%" preload="metadata" playsinline>
           <source src="media/videos/icra2025/clasp.mp4"
                   type="video/mp4">
         </video>
@@ -227,7 +224,7 @@
         <div class="columns">
           <div class="column has-text-centered">
             <div class="select is-large">     
-              <select id="single-menu-tasks" onchange="updateSingleVideo()">
+              <select id="single-menu-tasks" aria-label="Clothes manipulation task" onchange="updateSingleVideo()">
               <option value="tshirtfold" selected="selected">Fold the T-shirt for storage</option>
               <option value="dressflatten">Flatten the long dress</option>
               <option value="pantsfold">Fold the pants in half</option>
@@ -240,7 +237,6 @@
               <option value="vestfold">Fold the vest in half</option>
               <option value="tshirtflatten">Flatten the crumpled T-shirt</option>
               <option value="tshirthang">Hang the T-shirt on the hanger</option>
-              <option value="pantsfold">Fold the pants in half</option>
               <option value="skirtplace">Place the skirt in the box</option>
               <option value="shortshang">Hang the shorts on the hanger</option>
               </select>
@@ -249,12 +245,11 @@
             <br/>
             <br/>
 
-            <video id="single-task-result-video"
+            <video id="single-task-result-video" data-playback-rate="2"
                    controls
                    muted
-                   autoplay
                    loop
-                   width="100%">
+                   width="100%" preload="metadata" playsinline>
               <source src="media/videos/icra2025/tshirtfold.mp4"
                       type="video/mp4">
             </video>
@@ -284,6 +279,7 @@
       </div>
     </div>
 
+  </div>
   </div>
 </section>
 

@@ -22,7 +22,7 @@
   <!-- Cabin stands in for Gill Sans where it is not installed -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;1,400&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <noscript><style>.pane[hidden]{display:block}.tabs,.subtabs{display:none}</style></noscript>
 
@@ -84,7 +84,7 @@
       </div>
 
       <nav class="links" aria-label="Profiles">
-        <a href="https://scholar.google.com/citations?user=KdN7CjEAAAAJ&hl=en" rel="me noopener" target="_blank">
+        <a href="https://scholar.google.com/citations?user=KdN7CjEAAAAJ&amp;hl=en" rel="me noopener" target="_blank">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.242 13.769 0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>
           Google Scholar
         </a>
@@ -458,7 +458,10 @@
 
     applyFilter('selected');
     showPane((location.hash || '#research').slice(1), false);
-    window.addEventListener('hashchange', function () { showPane(location.hash.slice(1), false); });
+    window.addEventListener('hashchange', function () {
+      var name = location.hash.slice(1);
+      if (panes[name]) { showPane(name, false); }
+    });
   })();
   </script>
 </body>

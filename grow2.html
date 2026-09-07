@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Grounding Which and Where for Robot Tool Use">
+  <meta name="keywords" content="Tool Manipulation, Affordance Grounding, Foundation Model">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GROW²: Grounding Which and Where for Robot Tool Use</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4Y34PZ3XBE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-4Y34PZ3XBE');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <style>
+    .section .content > p {
+      font-size: 1.125rem;
+      line-height: 1.65;
+    }
+
+    .teaser-caption {
+      margin-top: 1.5rem;
+    }
+
+    .task-results {
+      margin-top: 3rem;
+    }
+
+    .task-result {
+      padding: 2rem 0;
+      border-top: 1px solid #dbdbdb;
+    }
+
+    .task-result__title {
+      margin-bottom: 1.25rem !important;
+      text-align: center;
+    }
+
+    .result-lane {
+      display: grid;
+      grid-template-columns: 7.5rem minmax(0, 1fr);
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .result-lane + .result-lane {
+      margin-top: 0.75rem;
+    }
+
+    .result-lane__label {
+      margin: 0;
+      font-weight: 600;
+      text-align: right;
+    }
+
+    .result-video-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.5rem;
+      min-width: 0;
+    }
+
+    .result-video {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 6px;
+      background: #000;
+      object-fit: contain;
+    }
+
+    .result-video--affordance {
+      aspect-ratio: 1;
+    }
+
+    @media (max-width: 768px) {
+      .result-lane {
+        display: block;
+      }
+
+      .result-lane__label {
+        margin-bottom: 0.5rem;
+        text-align: left;
+      }
+
+      .result-video-grid {
+        grid-template-columns: repeat(5, minmax(150px, 1fr));
+        padding-bottom: 0.5rem;
+        overflow-x: auto;
+      }
+    }
+  </style>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">GROW<sup>2</sup>: Grounding Which and Where for Robot Tool Use</h1>
+          <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a target="_blank" rel="noopener noreferrer" href="https://www.yuhongdeng.com/">Yuhong Deng</a><sup>1&#8225;</sup>,</span>
+              <span class="author-block">
+                <a target="_blank" rel="noopener noreferrer" href="https://yuyaoliu.me/">Yuyao Liu</a><sup>2&#8225;</sup>,</span>
+              <span class="author-block">
+                <a target="_blank" rel="noopener noreferrer" href="https://www.comp.nus.edu.sg/~dyhsu/">David Hsu</a><sup>1</sup></span>
+            </div>
+
+          <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>National University of Singapore; </span>
+              <span class="author-block"><sup>2</sup>Massachusetts Institute of Technology; </span>
+              <span class="author-block"><sup>&#8225;</sup>Equal Contribution </span>
+          </div>
+          <div class="is-size-5 publication-authors">
+              <span class="author-block">Conference on Robot Learning (CoRL), 2026</span>
+          </div>
+
+          <div class="column has-text-centered">
+              <div class="publication-links">
+
+                  <!-- Paper Link. -->
+                  <span class="link-block">
+                      <a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/pdf/2606.30632"
+                          class="external-link button is-normal is-rounded is-dark">
+                          <span class="icon">
+                              <i class="fas fa-file-alt"></i>
+                          </span>
+                          <span>PDF</span>
+                      </a>
+                  </span>
+
+              </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-fullhd">
+    <div class="hero-body">
+      <video id="teaser" autoplay muted loop preload="metadata" playsinline
+             style="display: block; width: 100%; height: auto;">
+        <source src="media/videos/corl2026/task.mp4"
+                type="video/mp4">
+      </video>
+      <p class="subtitle has-text-centered teaser-caption">
+        <strong>GROW<sup>2</sup></strong> is an open-world affordance-grounding method that enables robots to use everyday objects as improvised tools.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+          Can the robot use a plate to cut a cake if no knife is available?
+          Tool use greatly expands robot capabilities, but using everyday objects as improvised tools requires robots
+          to address the challenge of <i>open-world affordance grounding</i>: selecting an open-category object
+          to act as a tool and localizing its specific region of action. To this end, we introduce
+          <strong>GROW<sup>2</sup></strong> (GROunding Which and Where), which leverages object parts as a natural
+          abstraction to split the grounding process hierarchically into semantic and geometric levels, thus
+          bypassing the need for data-heavy, end-to-end training. Semantically,
+          <strong>GROW<sup>2</sup></strong> harnesses the commonsense reasoning of Vision-Language Models (VLMs)
+          to parse a natural-language task instruction, select a suitable object as the tool, and identify
+          task-relevant parts on the tool and the target object. Geometrically, vision foundation models then
+          ground the selected parts into precise 3D regions from a single RGB-D image. Experiments on established
+          benchmarks show that <strong>GROW<sup>2</sup></strong> outperforms state-of-the-art baselines on affordance
+          prediction benchmarks. Further, it achieves zero-shot generalization over open-category objects and
+          outperforms baselines in both simulated and real-world robot tool use experiments.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+  </div>
+
+</section>
+
+ <!-- Paper video. -->
+<section class="hero teaser">
+  <div class="container is-fullhd has-text-centered">
+    <div class="hero-body">
+        <h2 class="title is-3">Video</h2>
+        <video id="video_project" controls loop preload="metadata" playsinline
+               style="display: block; width: 100%; height: auto;">
+          <source src="media/videos/corl2026/project.mp4"
+                  type="video/mp4">
+        </video>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-widescreen">
+    <div class="rows">
+
+    <!-- Animation. -->
+    <div class="rows is-centered ">
+      <div class="row is-full-width">
+        <h2 class="title is-3"><span>Object parts as affordance indicators</span></h2>
+
+        <!-- Interpolating. -->
+
+        <div class="content has-text-justified">
+          <p>
+          Object parts, such as a blade, rim, and tip, provide a useful abstraction that captures both affordance semantics and the corresponding geometric structure.
+          Using parts as an intermediate representation, we can decompose affordance grounding into semantic and geometric levels. This decomposition eliminates dependence on large-scale affordance annotations and lets GROW<sup>2</sup>  generalize to open-category objects.
+          </p>
+        </div>
+        <img src="media/images/corl2026/parts.webp" class="interpolation-image"
+         width="2000" height="813" loading="lazy"
+         alt="Examples of object parts that indicate grasping and task-specific affordances." />
+        <br/>
+        <br/>
+        <!--/ Interpolating. -->
+
+        <!-- Re-rendering. -->
+        <h3 class="title is-3">GROW<sup>2</sup></h3>
+        <div class="content has-text-justified">
+          <p>
+          GROW<sup>2</sup> overview. Given a task description and a single-view RGB-D observation, GROW<sup>2</sup> first performs tool and part selection in semantic space to identify the tool and target objects along with their task-relevant parts. It then detects and grounds these parts into complete, function-faithful 3D affordance regions. Finally, the affordance regions serve as priors for motion planning to generate low-level actions for robot execution.
+          </p>
+        </div>
+        <img src="media/images/corl2026/overview.webp" class="interpolation-image"
+         width="2000" height="346" loading="lazy"
+         alt="Overview of the GROW squared semantic selection, 3D grounding, and robot execution pipeline." />
+        <br/>
+        <br/>
+        <br/>
+
+        <!--/ Re-rendering. -->
+
+        <h2 class="title is-3">Results</h2>
+
+
+        <div class="task-results">
+          <h3 class="title is-4">Robot tool-use examples</h3>
+          <div class="content has-text-justified">
+            <p>
+              Each example shows the robot manipulation video on top and the corresponding grounded 3D affordance regions below.
+            </p>
+          </div>
+
+          <section class="task-result" aria-labelledby="pound-results-title">
+            <h4 class="title is-4 task-result__title" id="pound-results-title">Pound</h4>
+            <div class="result-lane">
+              <p class="result-lane__label">Manipulation</p>
+              <div class="result-video-grid">
+                <video class="result-video" controls muted loop playsinline preload="none" aria-label="Pound manipulation example 1"><source data-src="media/videos/corl2026/results/pound-manipulation-1.mp4" type="video/mp4"></video>
+                <video class="result-video" controls muted loop playsinline preload="none" aria-label="Pound manipulation example 2"><source data-src="media/videos/corl2026/results/pound-manipulation-2.mp4" type="video/mp4"></video>
+                <video class="result-video" controls muted loop playsinline preload="none" aria-label="Pound manipulation example 3"><source data-src="media/videos/corl2026/results/pound-manipulation-3.mp4" type="video/mp4"></video>
+                <video class="result-video" controls muted loop playsinline preload="none" aria-label="Pound manipulation example 4"><source data-src="media/videos/corl2026/results/pound-manipulation-4.mp4" type="video/mp4"></video>
+                <video class="result-video" controls muted loop playsinline preload="none" aria-label="Pound manipulation example 5"><source data-src="media/videos/corl2026/results/pound-manipulation-5.mp4" type="video/mp4"></video>
+              </div>
+            </div>
+            <div class="result-lane">
+              <p class="result-lane__label">Affordance</p>
+              <div class="result-video-grid">
+                <video class="result-video result-video--affordance" controls muted loop playsinline preload="none" aria-label="Pound affordance example 1"><source data-src="media/videos/corl2026/results/pound-affordance-1.mp4" type="video/mp4"></video>
+                <video class="result-video result-video--affordance" controls muted loop playsinline preload="none" aria-label="Pound affordance example 2"><source data-src="media/videos/corl2026/results/pound-affordance-2.mp4" type="video/mp4"></video>
+                <video class="result-video result-video--affordance" controls muted loop playsinline preload="none" aria-label="Pound affordance example 3"><source data-src="media/videos/corl2026/results/pound-affordance-3.mp4" type="video/mp4"></video>
+                <video class="result-video result-video--affordance" controls muted loop playsinline preload="none" aria-label="Pound affordance example 4"><source data-src="media/videos/corl2026/results/pound-affordance-4.mp4" type="video/mp4"></video>
+                <video class="result-video result-video--affordance" controls muted loop playsinline preload="none" aria-label="Pound affordance example 5"><source data-src="media/videos/corl2026/results/pound-affordance-5.mp4" type="video/mp4"></video>
+              </div>
+            </div>
+          </section>
+
+          <section class="task-result" aria-labelledby="cut-results-title">
+            <h4 class="title is-4 task-result__title" id="cut-results-title">Cut</h4>
+            <div class="result-lane">
+              <p class="result-lane__label">Manipulation</p>
+              <div class="result-video-grid">
+                <video class="result-video" controls muted loop playsinline preload="none" aria-label="Cut manipulation example 1"><source data-src="media/videos/corl2026/results/cut-manipulation-1.mp4" type="video/mp4"></video>
+                <video class="result-video" controls muted loop playsinline preload="none" aria-label="Cut manipulation example 2"><source data-src="media/videos/corl2026/results/cut-manipulation-2.mp4" type="video/mp4"></video>
+                <video class="result-video" controls muted loop playsinline preload="none" aria-label="Cut manipulation example 3"><source data-src="media/videos/corl2026/results/cut-manipulation-3.mp4" type="video/mp4"></video>
+                <video class="result-video" controls muted loop playsinline preload="none" aria-label="Cut manipulation example 4"><source data-src="media/videos/corl2026/results/cut-manipulation-4.mp4" type="video/mp4"></video>
+                <video class="result-video" controls muted loop playsinline preload="none" aria-label="Cut manipulation example 5"><source data-src="media/videos/corl2026/results/cut-manipulation-5.mp4" type="video/mp4"></video>
+              </div>
+            </div>
+            <div class="result-lane">
+              <p class="result-lane__label">Affordance</p>
+              <div class="result-video-grid">
+                <video class="result-video result-video--affordance" controls muted loop playsinline preload="none" aria-label="Cut affordance example 1"><source data-src="media/videos/corl2026/results/cut-affordance-1.mp4" type="video/mp4"></video>
+                <video class="result-video result-video--affordance" controls muted loop playsinline preload="none" aria-label="Cut affordance example 2"><source data-src="media/videos/corl2026/results/cut-affordance-2.mp4" type="video/mp4"></video>
+                <video class="result-video result-video--affordance" controls muted loop playsinline preload="none" aria-label="Cut affordance example 3"><source data-src="media/videos/corl2026/results/cut-affordance-3.mp4" type="video/mp4"></video>
+                <video class="result-video result-video--affordance" controls muted loop playsinline preload="none" aria-label="Cut affordance example 4"><source data-src="media/videos/corl2026/results/cut-affordance-4.mp4" type="video/mp4"></video>
+                <video class="result-video result-video--affordance" controls muted loop playsinline preload="none" aria-label="Cut affordance example 5"><source data-src="media/videos/corl2026/results/cut-affordance-5.mp4" type="video/mp4"></video>
+              </div>
+            </div>
+          </section>
+
+          <section class="task-result" aria-labelledby="lift-results-title">
+            <h4 class="title is-4 task-result__title" id="lift-results-title">Lift</h4>
+            <div class="result-lane">
+              <p class="result-lane__label">Manipulation</p>
+              <div class="result-video-grid">
+                <video class="result-video" controls muted loop playsinline preload="none" aria-label="Lift manipulation example 1"><source data-src="media/videos/corl2026/results/lift-manipulation-1.mp4" type="video/mp4"></video>
+                <video class="result-video" controls muted loop playsinline preload="none" aria-label="Lift manipulation example 2"><source data-src="media/videos/corl2026/results/lift-manipulation-2.mp4" type="video/mp4"></video>
+                <video class="result-video" controls muted loop playsinline preload="none" aria-label="Lift manipulation example 3"><source data-src="media/videos/corl2026/results/lift-manipulation-3.mp4" type="video/mp4"></video>
+                <video class="result-video" controls muted loop playsinline preload="none" aria-label="Lift manipulation example 4"><source data-src="media/videos/corl2026/results/lift-manipulation-4.mp4" type="video/mp4"></video>
+                <video class="result-video" controls muted loop playsinline preload="none" aria-label="Lift manipulation example 5"><source data-src="media/videos/corl2026/results/lift-manipulation-5.mp4" type="video/mp4"></video>
+              </div>
+            </div>
+            <div class="result-lane">
+              <p class="result-lane__label">Affordance</p>
+              <div class="result-video-grid">
+                <video class="result-video result-video--affordance" controls muted loop playsinline preload="none" aria-label="Lift affordance example 1"><source data-src="media/videos/corl2026/results/lift-affordance-1.mp4" type="video/mp4"></video>
+                <video class="result-video result-video--affordance" controls muted loop playsinline preload="none" aria-label="Lift affordance example 2"><source data-src="media/videos/corl2026/results/lift-affordance-2.mp4" type="video/mp4"></video>
+                <video class="result-video result-video--affordance" controls muted loop playsinline preload="none" aria-label="Lift affordance example 3"><source data-src="media/videos/corl2026/results/lift-affordance-3.mp4" type="video/mp4"></video>
+                <video class="result-video result-video--affordance" controls muted loop playsinline preload="none" aria-label="Lift affordance example 4"><source data-src="media/videos/corl2026/results/lift-affordance-4.mp4" type="video/mp4"></video>
+                <video class="result-video result-video--affordance" controls muted loop playsinline preload="none" aria-label="Lift affordance example 5"><source data-src="media/videos/corl2026/results/lift-affordance-5.mp4" type="video/mp4"></video>
+              </div>
+            </div>
+          </section>
+
+          <section class="task-result" aria-labelledby="sweep-results-title">
+            <h4 class="title is-4 task-result__title" id="sweep-results-title">Sweep</h4>
+            <div class="result-lane">
+              <p class="result-lane__label">Manipulation</p>
+              <div class="result-video-grid">
+                <video class="result-video" controls muted loop playsinline preload="none" aria-label="Sweep manipulation example 1"><source data-src="media/videos/corl2026/results/sweep-manipulation-1.mp4" type="video/mp4"></video>
+                <video class="result-video" controls muted loop playsinline preload="none" aria-label="Sweep manipulation example 2"><source data-src="media/videos/corl2026/results/sweep-manipulation-2.mp4" type="video/mp4"></video>
+                <video class="result-video" controls muted loop playsinline preload="none" aria-label="Sweep manipulation example 3"><source data-src="media/videos/corl2026/results/sweep-manipulation-3.mp4" type="video/mp4"></video>
+                <video class="result-video" controls muted loop playsinline preload="none" aria-label="Sweep manipulation example 4"><source data-src="media/videos/corl2026/results/sweep-manipulation-4.mp4" type="video/mp4"></video>
+                <video class="result-video" controls muted loop playsinline preload="none" aria-label="Sweep manipulation example 5"><source data-src="media/videos/corl2026/results/sweep-manipulation-5.mp4" type="video/mp4"></video>
+              </div>
+            </div>
+            <div class="result-lane">
+              <p class="result-lane__label">Affordance</p>
+              <div class="result-video-grid">
+                <video class="result-video result-video--affordance" controls muted loop playsinline preload="none" aria-label="Sweep affordance example 1"><source data-src="media/videos/corl2026/results/sweep-affordance-1.mp4" type="video/mp4"></video>
+                <video class="result-video result-video--affordance" controls muted loop playsinline preload="none" aria-label="Sweep affordance example 2"><source data-src="media/videos/corl2026/results/sweep-affordance-2.mp4" type="video/mp4"></video>
+                <video class="result-video result-video--affordance" controls muted loop playsinline preload="none" aria-label="Sweep affordance example 3"><source data-src="media/videos/corl2026/results/sweep-affordance-3.mp4" type="video/mp4"></video>
+                <video class="result-video result-video--affordance" controls muted loop playsinline preload="none" aria-label="Sweep affordance example 4"><source data-src="media/videos/corl2026/results/sweep-affordance-4.mp4" type="video/mp4"></video>
+                <video class="result-video result-video--affordance" controls muted loop playsinline preload="none" aria-label="Sweep affordance example 5"><source data-src="media/videos/corl2026/results/sweep-affordance-5.mp4" type="video/mp4"></video>
+              </div>
+            </div>
+          </section>
+
+          <section class="task-result" aria-labelledby="pour-results-title">
+            <h4 class="title is-4 task-result__title" id="pour-results-title">Pour</h4>
+            <div class="result-lane">
+              <p class="result-lane__label">Manipulation</p>
+              <div class="result-video-grid">
+                <video class="result-video" controls muted loop playsinline preload="none" aria-label="Pour manipulation example 1"><source data-src="media/videos/corl2026/results/pour-manipulation-1.mp4" type="video/mp4"></video>
+                <video class="result-video" controls muted loop playsinline preload="none" aria-label="Pour manipulation example 2"><source data-src="media/videos/corl2026/results/pour-manipulation-2.mp4" type="video/mp4"></video>
+                <video class="result-video" controls muted loop playsinline preload="none" aria-label="Pour manipulation example 3"><source data-src="media/videos/corl2026/results/pour-manipulation-3.mp4" type="video/mp4"></video>
+                <video class="result-video" controls muted loop playsinline preload="none" aria-label="Pour manipulation example 4"><source data-src="media/videos/corl2026/results/pour-manipulation-4.mp4" type="video/mp4"></video>
+                <video class="result-video" controls muted loop playsinline preload="none" aria-label="Pour manipulation example 5"><source data-src="media/videos/corl2026/results/pour-manipulation-5.mp4" type="video/mp4"></video>
+              </div>
+            </div>
+            <div class="result-lane">
+              <p class="result-lane__label">Affordance</p>
+              <div class="result-video-grid">
+                <video class="result-video result-video--affordance" controls muted loop playsinline preload="none" aria-label="Pour affordance example 1"><source data-src="media/videos/corl2026/results/pour-affordance-1.mp4" type="video/mp4"></video>
+                <video class="result-video result-video--affordance" controls muted loop playsinline preload="none" aria-label="Pour affordance example 2"><source data-src="media/videos/corl2026/results/pour-affordance-2.mp4" type="video/mp4"></video>
+                <video class="result-video result-video--affordance" controls muted loop playsinline preload="none" aria-label="Pour affordance example 3"><source data-src="media/videos/corl2026/results/pour-affordance-3.mp4" type="video/mp4"></video>
+                <video class="result-video result-video--affordance" controls muted loop playsinline preload="none" aria-label="Pour affordance example 4"><source data-src="media/videos/corl2026/results/pour-affordance-4.mp4" type="video/mp4"></video>
+                <video class="result-video result-video--affordance" controls muted loop playsinline preload="none" aria-label="Pour affordance example 5"><source data-src="media/videos/corl2026/results/pour-affordance-5.mp4" type="video/mp4"></video>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <h3 class="title is-4">Open-world affordance grounding</h3>
+        <div class="content has-text-justified">
+          <p>
+            GROW<sup>2</sup> effectively grounds open-world affordances and generalizes to novel objects and broad tasks. Task-relevant affordance regions are highlighted in red.
+          </p>
+        </div>
+        <br/>
+        <img src="media/images/corl2026/last_page.webp" class="interpolation-image"
+         width="2000" height="1251" loading="lazy"
+         alt="Quantitative and qualitative results for open-world affordance grounding and robot tool use." />
+        <br/>
+
+      </div>
+    </div>
+
+  </div>
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-widescreen content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{deng2026grow2,
+  title     = {{GROW$^2$}: Grounding Which and Where for Robot Tool Use},
+  author    = {Yuhong Deng and Yuyao Liu and David Hsu},
+  journal   = {arXiv preprint arXiv:2606.30632},
+  year      = {2026},
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column">
+        <div class="content has-text-centered">
+          <p>
+            Website template borrowed from <a href="https://github.com/nerfies/nerfies.github.io">NeRFies</a> made by the amazing <a href="https://keunhong.com/">Keunhong Park</a>. 
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var resultVideos = document.querySelectorAll('.result-video');
+
+    function loadVideo(video) {
+      var source = video.querySelector('source[data-src]');
+      if (!source) return;
+      source.src = source.dataset.src;
+      source.removeAttribute('data-src');
+      video.load();
+    }
+
+    if (!('IntersectionObserver' in window)) {
+      resultVideos.forEach(loadVideo);
+      return;
+    }
+
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        var video = entry.target;
+        if (entry.isIntersecting) {
+          loadVideo(video);
+          video.play().catch(function () { /* Playback controls remain available. */ });
+        } else {
+          video.pause();
+        }
+      });
+    }, { rootMargin: '250px 0px', threshold: 0.05 });
+
+    resultVideos.forEach(function (video) {
+      observer.observe(video);
+    });
+  });
+</script>
+
+</body>
+</html>
